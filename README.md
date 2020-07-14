@@ -36,9 +36,9 @@ todo
 
 ## Usage
 
-```
+```blade
 <x-form>
-    @bind(auth()->user())
+    @bind($user)
         <x-form-input name="last_name" label="Last Name" />
         <x-form-select name="country_code" :options="$options" />
         <x-form-select name="interests" :options="$multiOptions" multiple />
