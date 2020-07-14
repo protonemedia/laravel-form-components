@@ -1,0 +1,53 @@
+{
+    "name": "protonemedia/laravel-form-components",
+    "description": "Set of Laravel Blade components to build Tailwind forms.",
+    "keywords": [
+        "protonemedia",
+        "tailwind",
+        "tailwindcss",
+        "laravel-form-components"
+    ],
+    "homepage": "https://github.com/protonemedia/laravel-form-components",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Pascal Baljet",
+            "email": "pascal@protone.media",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^6.0|^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench-browser-kit": "^5.1",
+        "phpunit/phpunit": "^8.5",
+        "spatie/laravel-translatable": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ProtoneMedia\\LaravelFormComponents\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ProtoneMedia\\LaravelFormComponents\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ProtoneMedia\\LaravelFormComponents\\Support\\ServiceProvider"
+            ]
+        }
+    }
+}

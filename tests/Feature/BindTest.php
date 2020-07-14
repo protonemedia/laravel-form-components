@@ -1,0 +1,108 @@
+<?php
+
+namespace ProtoneMedia\LaravelFormComponents\Tests\Feature;
+
+use Illuminate\Http\Request;
+use ProtoneMedia\LaravelFormComponents\Tests\TestCase;
+
+class BindTest extends TestCase
+{
+    /** @test */
+    public function it_can_bind_a_target_to_the_form()
+    {
+        $this->registerTestRoute('bind-target');
+
+        $this->visit('/bind-target')
+            ->seeElement('input[name="input"][value="a"]')
+            ->seeInElement('textarea[name="textarea"]', 'b')
+            ->seeElement('option[value="c"]:selected')
+            ->seeElement('select[multiple]')
+            ->seeElement('option[value="d"]:selected')
+            ->seeElement('option[value="e"]:selected')
+            ->seeElement('input[name="checkbox"]:checked')
+            ->seeElement('input[name="radio"]:checked');
+    }
+
+    /** @test */
+    public function it_overrides_the_bound_target_with_the_old_request_data()
+    {
+        $this->registerTestRoute('bound-with-validation-errors', function (Request $request) {
+            $request->validate([
+                'input'    => 'required',
+                'textarea' => 'required',
+                'select'   => 'required',
+                'checkbox' => 'required',
+                'radio'    => 'required',
+            ]);
+        });
+
+        $this->visit('/bound-with-validation-errors')
+            ->type('d', 'input')
+            ->type('e', 'textarea')
+            ->select('f', 'select')
+            ->uncheck('checkbox')
+            ->check('radio')
+            ->press('Submit')
+            ->seeElement('input[name="input"][value="d"]')
+            ->seeInElement('textarea[name="textarea"]', 'e')
+            ->seeElement('option[value="f"]:selected')
+            ->seeElement('input[name="checkbox"]')
+            ->dontSeeElement('input[name="checkbox"]:checked')
+            ->seeElement('input[name="radio"]:checked');
+    }
+
+    /** @test */
+    public function it_overrides_the_default_value()
+    {
+        $this->registerTestRoute('default-values-with-bound-target');
+
+        $this->visit('/default-values-with-bound-target')
+            ->seeElement('input[name="input"][value="a"]')
+            ->seeInElement('textarea[name="textarea"]', 'b')
+            ->seeElement('option[value="c"]:selected')
+            ->seeElement('input[name="checkbox"]')
+            ->dontSeeElement('input[name="checkbox"]:checked')
+            ->seeElement('input[name="radio"]')
+            ->dontSeeElement('input[name="radio"]:checked');
+    }
+
+    /** @test */
+    public function it_can_bind_two_targets_to_the_form()
+    {
+        $this->registerTestRoute('bind-two-targets');
+
+        $this->visit('/bind-two-targets')
+            ->seeElement('input[name="input"][value="a"]')
+            ->seeInElement('textarea[name="textarea"]', 'e')
+            ->dontSeeElement('option[value="c"]:selected')
+            ->seeElement('option[value="f"]:selected')
+            ->seeElement('input[name="checkbox"]')
+            ->dontSeeElement('input[name="checkbox"]:checked')
+            ->seeElement('input[name="radio"]:checked');
+    }
+
+    /** @test */
+    public function it_can_override_the_global_bind_with_a_bind_per_element()
+    {
+        $this->registerTestRoute('override-bind');
+
+        $this->visit('/override-bind')
+            ->seeElement('input[name="input"][value="d"]')
+            ->seeInElement('textarea[name="textarea"]', 'e')
+            ->seeElement('option[value="f"]:selected')
+            ->seeElement('input[name="checkbox"]')
+            ->dontSeeElement('input[name="checkbox"]:checked')
+            ->seeElement('input[name="radio"]')
+            ->dontSeeElement('input[name="radio"]:checked');
+    }
+
+    /** @test */
+    public function it_can_disable_a_global_bind_per_element()
+    {
+        $this->registerTestRoute('undo-bind');
+
+        $this->visit('/undo-bind')
+            ->seeElement('input[name="input"][value="a"]')
+            ->dontSeeInElement('textarea[name="textarea"]', 'b');
+    }
+}
