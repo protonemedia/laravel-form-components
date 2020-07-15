@@ -1,5 +1,5 @@
 @php
-    $target = new \Tests\Feature\TranslatableModel;
+    $target = new \ProtoneMedia\LaravelFormComponents\Tests\Feature\TranslatableModel;
     $target->setTranslations('input', ['nl' => 'hallo', 'en' => 'hello']);
 @endphp
 
