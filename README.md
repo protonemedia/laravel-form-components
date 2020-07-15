@@ -178,7 +178,14 @@ If you have a fieldset of multiple checkboxes, you can group them together with 
 
 Radio elements behave exactly the same as checkboxes, except the `show-errors` attribute defaults to `false` as you almost always want to wrap multiple radio elements in a `form-group`.
 
-*todo*
+You can group checkbox and radio elements on the same horizontal row by adding an `inline` attribute to the `form-group` element.
+
+```blade
+<x-form-group name="notification_channel" label="How do you want to receive your notifications?" inline>
+    <x-form-checkbox name="notification_channel" value="mail" label="Mail" />
+    <x-form-checkbox name="notification_channel" value="slack" label="Slack" />
+</x-form-group>
+```
 
 ### Old data
 
