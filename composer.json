@@ -22,7 +22,7 @@
         "illuminate/support": "^6.0|^7.0"
     },
     "require-dev": {
-        "orchestra/testbench-browser-kit": "^5.1",
+        "orchestra/testbench-browser-kit": "^4.0|^5.0",
         "phpunit/phpunit": "^8.5",
         "spatie/laravel-translatable": "^4.4"
     },
