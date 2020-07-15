@@ -151,7 +151,7 @@ $countries = [
 <x-form-select name="country_code" :options="$countries" />
 ```
 
-If you want a select where multiple options can be selected, add the `multiple` attribute to the element. If you specify a default, make sure it is an array. This applies to bound targets as well.
+If you want a select element where multiple options can be selected, add the `multiple` attribute to the element. If you specify a default, make sure it is an array. This applies to bound targets as well.
 
 ```blade
 <x-form-select name="country_code" :options="$countries" multiple :default="['be', 'nl']" />
