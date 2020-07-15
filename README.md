@@ -64,7 +64,7 @@ todo
 
 ### Input and textarea elements
 
-The minimum requirement for an `input` or `textarea` is a `name` attribute.
+The minimum requirement for an `input` or `textarea` is the `name` attribute.
 
 ```blade
 <x-form-input name="company_name" />
@@ -134,6 +134,27 @@ You can even mix targets!
         <x-form-input name="email" label="Email address" />
     @endbind
 </x-form>
+```
+
+## Select
+
+Besides the `name` attribute, the `select` element has a required `options` attribute, which should be a simple *key-value* array.
+
+```php
+$countries = [
+    'be' => 'Belgium',
+    'nl' => 'The Netherlands',
+];
+```
+
+```blade
+<x-form-select name="country_code" :options="$countries" />
+```
+
+If you want a select where multiple options can be selected, add the `multiple` attribute to the element. If you specify a default, make sure it is an array. This applies to bound targets as well.
+
+```blade
+<x-form-select name="country_code" :options="$countries" multiple :default="['be', 'nl']" />
 ```
 
 ### Testing
