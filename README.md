@@ -136,7 +136,7 @@ You can even mix targets!
 </x-form>
 ```
 
-## Select
+### Select elements
 
 Besides the `name` attribute, the `select` element has a required `options` attribute, which should be a simple *key-value* array.
 
@@ -156,6 +156,45 @@ If you want a select where multiple options can be selected, add the `multiple` 
 ```blade
 <x-form-select name="country_code" :options="$countries" multiple :default="['be', 'nl']" />
 ```
+
+### Checkbox elements
+
+Checkboxes have a default value of `1`, but you can customize it as well.
+
+```blade
+<x-form-checkbox name="subscribe_to_newsletter" label="Subscribe to newsletter" />
+```
+
+If you have a fieldset of multiple checkboxes, you can group them together with the `form-group` component. This component has an optional `label` attribute and you can set the `name` as well. This is a great way to handle the validation of arrays. If you disable the errors on the individual checkboxes, it will one show the validation errors once. The `form-group` component has a `show-errors` attribute that defaults to `true`.
+
+```blade
+<x-form-group name="interests" label="Pick one or more interests">
+    <x-form-checkbox name="interests[]" :show-errors="false" value="laravel" label="Laravel" />
+    <x-form-checkbox name="interests[]" :show-errors="false" value="tailwindcss" label="Tailwind CSS" />
+</x-form-group>
+```
+
+### Radio elements
+
+Radio elements behave exactly the same as checkboxes, except the `show-errors` attribute defaults to `false` as you almost always want to wrap multiple radio elements in a `form-group`.
+
+*todo*
+
+### Old data
+
+*todo*
+
+### Handling translations
+
+*todo*
+
+### Customize the blade views
+
+*todo*
+
+### Customize the components
+
+*todo*
 
 ### Testing
 
