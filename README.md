@@ -62,7 +62,7 @@ todo
 </x-form>
 ```
 
-<img src="" width="450" />
+<img src="https://github.com/pascalbaljetmedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450" />
 
 ## Usage
 
