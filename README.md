@@ -31,7 +31,7 @@ composer require protonemedia/laravel-form-components
 
 ## Configuration
 
-todo
+There is no configuration needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
 
 ## Quick example
 
@@ -140,6 +140,20 @@ You can even mix targets!
 </x-form>
 ```
 
+### Override or remove a binding
+
+You can override the `@bind` directive by passing a target directly to the element using the `:bind` attribute. If you want to remove a binding for a specific element, pass in `false`.
+
+```blade
+<x-form>
+    @bind($video)
+        <x-form-input name="title" label="Title" />
+        <x-form-input :bind="$videoDetails" name="subtitle" label="Subtitle" />
+        <x-form-textarea :bind="false" name="description" label="Description" />
+    @endbind
+</x-form>
+```
+
 ### Select elements
 
 Besides the `name` attribute, the `select` element has a required `options` attribute, which should be a simple *key-value* array.
@@ -191,13 +205,13 @@ You can group checkbox and radio elements on the same horizontal row by adding a
 </x-form-group>
 ```
 
-### Old data
+### Old input data
 
-*todo*
+When a validation errors occurs, and Laravel redirects you back, the form will be re-populated with the old input data. This old data will override any binding or default value.
 
 ### Handling translations
 
-*todo*
+
 
 ### Customize the blade views
 
