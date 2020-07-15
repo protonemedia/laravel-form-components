@@ -19,8 +19,7 @@
 
 ## Requirements
 
-* PHP 7.4+
-* Laravel 6.0 / 7.0
+* PHP 7.4 + Laravel 7.0 only
 
 ## Installation
 
