@@ -196,6 +196,10 @@ Radio elements behave exactly the same as checkboxes, except the `show-errors` a
 
 *todo*
 
+### Prefix the components
+
+*todo*
+
 ### Testing
 
 ``` bash
