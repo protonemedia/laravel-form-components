@@ -211,7 +211,17 @@ When a validation errors occurs, and Laravel redirects you back, the form will b
 
 ### Handling translations
 
+This package supports `spatie/laravel-translatable` out of the box. You can add a `language` attribute to your element.
 
+```blade
+<x-form-input name="title" language="en" :bind="$book" />
+```
+
+This will result in the following HTML:
+
+```html
+<input name="title[en]" value="Laravel: Up & Running" />
+```
 
 ### Customize the blade views
 
@@ -223,7 +233,22 @@ When a validation errors occurs, and Laravel redirects you back, the form will b
 
 ### Prefix the components
 
-*todo*
+You can define a prefix in the `form-components.php` configuration file.
+
+```php
+
+return [
+    'prefix' => 'tailwind',
+];
+```
+
+Now all components can be referenced like so:
+
+```blade
+<x-tailwind-form>
+    <x-tailwind-form-input name="company_name" />
+</x-tailwind-form>
+```
 
 ### Testing
 
