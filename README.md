@@ -223,9 +223,17 @@ This will result in the following HTML:
 <input name="title[en]" value="Laravel: Up & Running" />
 ```
 
+To get the validation errors from the session, the name of the input will be mapped to a *dot* notation like `title.en`. This is how old input data is handled as well.
+
 ### Customize the blade views
 
-*todo*
+Publish the configuration file and Blade views with the following command:
+
+```bash
+php artisan vendor:publish --provider="ProtoneMedia\LaravelFormComponents\Support\ServiceProvider"
+```
+
+You can find the Blade views in the `resources/views/vendor/form-components` folder. With the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
 
 ### Customize the components
 
