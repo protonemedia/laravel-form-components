@@ -233,11 +233,11 @@ Publish the configuration file and Blade views with the following command:
 php artisan vendor:publish --provider="ProtoneMedia\LaravelFormComponents\Support\ServiceProvider"
 ```
 
-You can find the Blade views in the `resources/views/vendor/form-components` folder. With the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
+You can find the Blade views in the `resources/views/vendor/form-components` folder. In the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
 
 ### Customize the components
 
-*todo*
+You can bind your own component classes to any of the elements. In the `form-components.php` configuration file, you can change the class *per* component. As the logic for the components is quite complex, it is strongly recommended to duplicate the default component as a starting point, and start editing from there. You'll find the default component classes in the `vendor/protonemedia/laravel-form-components/src/Components` folder.
 
 ### Prefix the components
 

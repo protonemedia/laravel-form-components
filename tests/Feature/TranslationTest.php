@@ -18,7 +18,7 @@ class TranslationTest extends TestCase
     }
 
     /** @test */
-    public function it_shows_the_old_values_correctly()
+    public function it_shows_the_validation_errors_and_old_values_correctly()
     {
         $this->registerTestRoute('translation', function (Request $request) {
             $request->validate([
