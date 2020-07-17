@@ -1,21 +1,24 @@
-# [WIP] Laravel Form Components
+# Laravel Form Components
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Build Status](https://img.shields.io/travis/pascalbaljetmedia/laravel-form-components/master.svg?style=flat-square)](https://travis-ci.org/pascalbaljetmedia/laravel-form-components)
 [![Quality Score](https://img.shields.io/scrutinizer/g/pascalbaljetmedia/laravel-form-components.svg?style=flat-square)](https://scrutinizer-ci.com/g/pascalbaljetmedia/laravel-form-components)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/pascalbaljetmedia/laravel-form-components)
+
+A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app). It uses the default styling from the plugin and is still fully customizable!
 
 ## Features
 
 * Components for input, textarea, select, multi-select, checkbox and radio elements
 * Support for [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app)
-* Re-populate form with [old input](https://laravel.com/docs/master/requests#old-input)
-* Validation errors
 * Bind a target to a form (or a set of elements) to provide default values
 * Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable)
+* Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input)
+* Validation errors
 * Components classes and Blade views fully customizable
 * Support for prefixing the components
-* Prepared for other CSS frameworks as well (future release)
+* Prepared for other CSS frameworks as well (in a future release)
 
 ## Requirements
 
@@ -28,6 +31,8 @@ You can install the package via composer:
 ```bash
 composer require protonemedia/laravel-form-components
 ```
+
+Make sure the [Tailwind plugin](https://github.com/tailwindcss/custom-forms#install) is installed and added to your `tailwind.config.js` file. If you're starting a new project, you can use the [Frontend preset for Tailwind CSS](https://github.com/laravel-frontend-presets/tailwindcss) which includes the Custom Forms plugin as well.
 
 ## Configuration
 
@@ -207,7 +212,7 @@ You can group checkbox and radio elements on the same horizontal row by adding a
 
 ### Old input data
 
-When a validation errors occurs, and Laravel redirects you back, the form will be re-populated with the old input data. This old data will override any binding or default value.
+When a validation errors occurs and Laravel redirects you back, the form will be re-populated with the old input data. This old data will override any binding or default value.
 
 ### Handling translations
 
@@ -237,7 +242,7 @@ You can find the Blade views in the `resources/views/vendor/form-components` fol
 
 ### Customize the components
 
-You can bind your own component classes to any of the elements. In the `form-components.php` configuration file, you can change the class *per* component. As the logic for the components is quite complex, it is strongly recommended to duplicate the default component as a starting point, and start editing from there. You'll find the default component classes in the `vendor/protonemedia/laravel-form-components/src/Components` folder.
+You can bind your own component classes to any of the elements. In the `form-components.php` configuration file, you can change the class *per* component. As the logic for the components is quite complex, it is strongly recommended to duplicate the default component as a starting point and start editing. You'll find the default component classes in the `vendor/protonemedia/laravel-form-components/src/Components` folder.
 
 ### Prefix the components
 
@@ -286,6 +291,16 @@ Please see [CHANGELOG](CHANGELOG.md) for more information about what has changed
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
+## Other Laravel packages
+
+* [`Laravel Analytics Event Tracking`](https://github.com/pascalbaljetmedia/laravel-analytics-event-tracking): Laravel package to easily send events to Google Analytics.
+* [`Laravel Blade On Demand`](https://github.com/pascalbaljetmedia/laravel-blade-on-demand): Laravel package to compile Blade templates in memory.
+* [`Laravel Cross Eloquent Search`](https://github.com/pascalbaljetmedia/laravel-cross-eloquent-search): Laravel package to search through multiple Eloquent models.
+* [`Laravel FFMpeg`](https://github.com/pascalbaljetmedia/laravel-ffmpeg): This package provides an integration with FFmpeg for Laravel. The storage of the files is handled by Laravel's Filesystem.
+* [`Laravel Paddle`](https://github.com/pascalbaljetmedia/laravel-paddle): Paddle.com API integration for Laravel with support for webhooks/events.
+* [`Laravel Verify New Email`](https://github.com/pascalbaljetmedia/laravel-verify-new-email): This package adds support for verifying new email addresses: when a user updates its email address, it won't replace the old one until the new one is verified.
+* [`Laravel WebDAV`](https://github.com/pascalbaljetmedia/laravel-webdav): WebDAV driver for Laravel's Filesystem.
+
 ### Security
 
 If you discover any security related issues, please email pascal@protone.media instead of using the issue tracker.
@@ -298,3 +313,7 @@ If you discover any security related issues, please email pascal@protone.media i
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Treeware
+
+This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/pascalbaljetmedia/laravel-form-components) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
