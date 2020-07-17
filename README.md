@@ -233,7 +233,7 @@ Publish the configuration file and Blade views with the following command:
 php artisan vendor:publish --provider="ProtoneMedia\LaravelFormComponents\Support\ServiceProvider"
 ```
 
-You can find the Blade views in the `resources/views/vendor/form-components` folder. In the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
+You can find the Blade views in the `resources/views/vendor/form-components` folder. Optionally, in the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
 
 ### Customize the components
 
@@ -256,6 +256,20 @@ Now all components can be referenced like so:
 <x-tailwind-form>
     <x-tailwind-form-input name="company_name" />
 </x-tailwind-form>
+```
+
+### Error messages
+
+By the default, the errors messages are positioned under the element. To show these messages, we created a `FormErrors` component. You can manually use this component as well.
+
+```blade
+<x-form>
+    <x-form-input name="company_name" :show-errors="false" />
+
+    <!-- other elements -->
+
+    <x-form-errors name="company_name" />
+</x-form>
 ```
 
 ### Testing
