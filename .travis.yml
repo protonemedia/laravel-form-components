@@ -7,9 +7,13 @@ cache:
 matrix:
   include:
     - php: 7.4
-      env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-lowest'
+      env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-lowest' FORM_COMPONENTS_FRAMEWORK='tailwind'
     - php: 7.4
-      env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-stable'
+      env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-stable'FORM_COMPONENTS_FRAMEWORK='tailwind'
+    - php: 7.4
+      env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-lowest'FORM_COMPONENTS_FRAMEWORK='bootstrap-4'
+    - php: 7.4
+      env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-stable'FORM_COMPONENTS_FRAMEWORK='bootstrap-4'
   fast_finish: true
 
 before_install:

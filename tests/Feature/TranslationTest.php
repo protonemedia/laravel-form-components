@@ -42,7 +42,7 @@ class TranslationTest extends TestCase
             ->press('Submit')
             ->seeElement('input[name="input[nl]"][value="hoi"]')
             ->seeElement('input[name="input[en]"][value="hey"]')
-            ->seeInElement('p', 'The input.nl must be at least 5 characters')
-            ->seeInElement('p', 'The input.en must be at least 5 characters');
+            ->seeText('The input.nl must be at least 5 characters')
+            ->seeText('The input.en must be at least 5 characters');
     }
 }
