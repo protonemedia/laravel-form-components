@@ -22,11 +22,11 @@ class ValidationTest extends TestCase
 
         $this->visit('/validation-errors')
             ->press('Submit')
-            ->seeInElement('p', 'The input field is required')
-            ->seeInElement('p', 'The textarea field is required')
-            ->seeInElement('p', 'The select field is required')
-            ->seeInElement('p', 'The checkbox field is required')
-            ->seeInElement('p', 'The radio field is required');
+            ->seeText('The input field is required')
+            ->seeText('The textarea field is required')
+            ->seeText('The select field is required')
+            ->seeText('The checkbox field is required')
+            ->seeText('The radio field is required');
     }
 
     /** @test */
@@ -44,11 +44,11 @@ class ValidationTest extends TestCase
 
         $this->visit('/hidden-validation-errors')
             ->press('Submit')
-            ->dontSeeElement('p')
-            ->dontSeeElement('p')
-            ->dontSeeElement('p')
-            ->dontSeeElement('p')
-            ->dontSeeElement('p');
+            ->dontSeeText('The input field is required')
+            ->dontSeeText('The textarea field is required')
+            ->dontSeeText('The select field is required')
+            ->dontSeeText('The checkbox field is required')
+            ->dontSeeText('The radio field is required');
     }
 
     /** @test */

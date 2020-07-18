@@ -10,15 +10,15 @@ A set of Blade components to build forms with [Tailwind CSS Custom Forms](https:
 
 ## Features
 
-* Components for input, textarea, select, multi-select, checkbox and radio elements
-* Support for [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app)
-* Bind a target to a form (or a set of elements) to provide default values
-* Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable)
-* Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input)
-* Validation errors
-* Components classes and Blade views fully customizable
-* Support for prefixing the components
-* Prepared for other CSS frameworks as well (in a future release)
+* Components for input, textarea, select, multi-select, checkbox and radio elements.
+* Support for [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
+* Bind a target to a form (or a set of elements) to provide default values.
+* Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable).
+* Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input).
+* Validation errors.
+* Components classes and Blade views fully customizable.
+* Support for prefixing the components.
+* Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 
 ## Requirements
 
@@ -98,7 +98,7 @@ By default every element shows validation errors but you can hide them if you wa
 <x-form-textarea name="description" :show-errors="false" />
 ```
 
-### Default value
+### Default value and binds
 
 You can use the `default` attribute to specify the default value of the element.
 
@@ -106,7 +106,7 @@ You can use the `default` attribute to specify the default value of the element.
 <x-form-textarea name="motivation" default="I want to use this package because..." />
 ```
 
-### Binding a target
+#### Binding a target
 
 Instead of setting a default value, you can also pass in a target, like an Eloquent model. Now the component will get the value from the target by the `name`.
 
@@ -116,7 +116,7 @@ Instead of setting a default value, you can also pass in a target, like an Eloqu
 
 In the example above, where `$video` is an Eloquent model, the default value will be `$video->description`.
 
-### Binding a target to multiple elements
+#### Binding a target to multiple elements
 
 You can also bind a target by using the `@bind` directive. This will bind the target to all elements until the `@endbind` directive.
 
@@ -145,7 +145,7 @@ You can even mix targets!
 </x-form>
 ```
 
-### Override or remove a binding
+#### Override or remove a binding
 
 You can override the `@bind` directive by passing a target directly to the element using the `:bind` attribute. If you want to remove a binding for a specific element, pass in `false`.
 
@@ -240,7 +240,7 @@ php artisan vendor:publish --provider="ProtoneMedia\LaravelFormComponents\Suppor
 
 You can find the Blade views in the `resources/views/vendor/form-components` folder. Optionally, in the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
 
-### Customize the components
+#### Component logic
 
 You can bind your own component classes to any of the elements. In the `form-components.php` configuration file, you can change the class *per* component. As the logic for the components is quite complex, it is strongly recommended to duplicate the default component as a starting point and start editing. You'll find the default component classes in the `vendor/protonemedia/laravel-form-components/src/Components` folder.
 
@@ -249,7 +249,6 @@ You can bind your own component classes to any of the elements. In the `form-com
 You can define a prefix in the `form-components.php` configuration file.
 
 ```php
-
 return [
     'prefix' => 'tailwind',
 ];
@@ -275,6 +274,60 @@ By the default, the errors messages are positioned under the element. To show th
 
     <x-form-errors name="company_name" />
 </x-form>
+```
+
+### Submit button
+
+The label defaults to *Submit* but you can use the slot to provide your own content.
+
+```blade
+<x-form-submit>
+    <span class="text-green-500">Send</span>
+</x-form-submit>
+```
+
+### Bootstrap 4
+
+You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by updating the `framework` setting in the `form-components.php` configuration file.
+
+```php
+return [
+    'framework' => 'bootstrap-4',
+];
+```
+
+There is a little bit of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
+
+#### Input prepend and append
+
+In addition to the Tailwind features, there is also support for [input groups](https://getbootstrap.com/docs/4.1/components/forms/#auto-sizing). Use the `prepend` and `append` slots to provide the contents.
+
+```blade
+<x-form-input name="username" label="Username">
+    @slot('prepend')
+        <span>@</span>
+    @endslot
+</x-form-input>
+
+<x-form-input name="subdomain" label="Subdomain">
+    @slot('append')
+        <span>.protone.media</span>
+    @endslot
+</x-form-input>
+```
+
+#### Help text
+
+You can add [block-level help text](https://getbootstrap.com/docs/4.1/components/forms/#help-text) to any element by using the `help` slot.
+
+```blade
+<x-form-input name="username" label="Username">
+    @slot('help')
+        <small class="form-text text-muted">
+            Your username must be 8-20 characters long.
+        </small>
+    @endslot
+</x-form-input>
 ```
 
 ### Testing
