@@ -98,7 +98,7 @@ By default every element shows validation errors but you can hide them if you wa
 <x-form-textarea name="description" :show-errors="false" />
 ```
 
-### Default value
+### Default value and binds
 
 You can use the `default` attribute to specify the default value of the element.
 
@@ -106,7 +106,7 @@ You can use the `default` attribute to specify the default value of the element.
 <x-form-textarea name="motivation" default="I want to use this package because..." />
 ```
 
-### Binding a target
+#### Binding a target
 
 Instead of setting a default value, you can also pass in a target, like an Eloquent model. Now the component will get the value from the target by the `name`.
 
@@ -116,7 +116,7 @@ Instead of setting a default value, you can also pass in a target, like an Eloqu
 
 In the example above, where `$video` is an Eloquent model, the default value will be `$video->description`.
 
-### Binding a target to multiple elements
+#### Binding a target to multiple elements
 
 You can also bind a target by using the `@bind` directive. This will bind the target to all elements until the `@endbind` directive.
 
@@ -145,7 +145,7 @@ You can even mix targets!
 </x-form>
 ```
 
-### Override or remove a binding
+#### Override or remove a binding
 
 You can override the `@bind` directive by passing a target directly to the element using the `:bind` attribute. If you want to remove a binding for a specific element, pass in `false`.
 
@@ -240,7 +240,7 @@ php artisan vendor:publish --provider="ProtoneMedia\LaravelFormComponents\Suppor
 
 You can find the Blade views in the `resources/views/vendor/form-components` folder. Optionally, in the `form-components.php` configuration file, you can change the location of the Blade view *per* component.
 
-### Customize the components
+#### Component logic
 
 You can bind your own component classes to any of the elements. In the `form-components.php` configuration file, you can change the class *per* component. As the logic for the components is quite complex, it is strongly recommended to duplicate the default component as a starting point and start editing. You'll find the default component classes in the `vendor/protonemedia/laravel-form-components/src/Components` folder.
 
@@ -316,9 +316,9 @@ In addition to the Tailwind features, there is also support for [input groups](h
 </x-form-input>
 ```
 
-You can add [block-level help text](https://getbootstrap.com/docs/4.1/components/forms/#help-text) to any element by using the `help` slot.
-
 #### Help text
+
+You can add [block-level help text](https://getbootstrap.com/docs/4.1/components/forms/#help-text) to any element by using the `help` slot.
 
 ```blade
 <x-form-input name="username" label="Username">
