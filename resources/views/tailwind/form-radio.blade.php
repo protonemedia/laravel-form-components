@@ -13,7 +13,7 @@
         <span class="ml-2">{{ $label }}</span>
     </label>
 
-    @if($showErrors)
+    @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
 </div>

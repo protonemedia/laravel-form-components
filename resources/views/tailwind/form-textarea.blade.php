@@ -8,7 +8,7 @@
             name="{{ $name }}">{!! $value !!}</textarea>
     </label>
 
-    @if($showErrors)
+    @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
 </div>
