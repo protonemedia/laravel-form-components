@@ -288,7 +288,7 @@ The label defaults to *Submit* but you can use the slot to provide your own cont
 
 ### Bootstrap 4
 
-You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by updating the `framework` in the `form-components.php` configuration file.
+You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by updating the `framework` setting in the `form-components.php` configuration file.
 
 ```php
 return [

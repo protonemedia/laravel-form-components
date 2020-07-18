@@ -4,7 +4,7 @@ namespace ProtoneMedia\LaravelFormComponents\Tests\Feature;
 
 use ProtoneMedia\LaravelFormComponents\Tests\TestCase;
 
-class TranslationTest extends TestCase
+class BootstrapTest extends TestCase
 {
     /** @test */
     public function it_can_append_to_an_input()
