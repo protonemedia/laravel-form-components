@@ -1,19 +1,17 @@
-<div>
-    <label class="inline-flex items-center">
-        <input {!! $attributes->merge(['class' => 'form-radio']) !!}
-            type="radio"
-            name="{{ $name }}"
-            value="{{ $value }}"
+<div class="form-check">
+    <input {!! $attributes->merge(['class' => 'form-check-input ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
+        type="radio"
+        name="{{ $name }}"
+        value="{{ $value }}"
 
-            @if($checked)
-                checked="checked"
-            @endif
-        />
+        @if($checked)
+            checked="checked"
+        @endif
+    />
 
-        <span class="ml-2">{{ $label }}</span>
-    </label>
+   <x-form-label :label="$label" :for="$name" class="form-check-label" />
 
-    @if($showErrors)
+    @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
 </div>

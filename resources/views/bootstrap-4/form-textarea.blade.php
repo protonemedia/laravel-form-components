@@ -1,14 +1,10 @@
-<div class="mt-4">
-    <label class="block">
-        <x-form-label :label="$label" />
+<div class="form-group">
+    <x-form-label :label="$label" :for="$name" />
 
-        <textarea {!! $attributes->merge([
-            'class' => 'form-textarea block w-full ' . ($label ? 'mt-1' : '')
-        ]) !!}
-            name="{{ $name }}">{!! $value !!}</textarea>
-    </label>
+    <textarea {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
+        name="{{ $name }}">{!! $value !!}</textarea>
 
-    @if($showErrors)
+    @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
 </div>

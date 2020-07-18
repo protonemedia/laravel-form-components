@@ -1,24 +1,20 @@
-<div class="mt-4">
-    <label class="block">
-        <x-form-label :label="$label" />
+<div class="form-group">
+    <x-form-label :label="$label" :for="$name" />
 
-        <select name="{{ $name }}"
-            @if($multiple)
-                multiple
-            @endif
+    <select name="{{ $name }}"
+        @if($multiple)
+            multiple
+        @endif
 
-            {!! $attributes->merge([
-                'class' => ($label ? 'mt-1' : '') . ' block w-full ' . ($multiple ? 'form-multiselect' : 'form-select')
-            ]) !!}>
-            @foreach($options as $key => $option)
-                <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
-                    {{ $option }}
-                </option>
-            @endforeach
-        </select>
-    </label>
+        {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}>
+        @foreach($options as $key => $option)
+            <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
+                {{ $option }}
+            </option>
+        @endforeach
+    </select>
 
-    @if($showErrors)
+    @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
 </div>
