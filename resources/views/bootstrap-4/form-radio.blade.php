@@ -11,6 +11,8 @@
 
    <x-form-label :label="$label" :for="$name" class="form-check-label" />
 
+    {!! $help ?? null !!}
+
     @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif

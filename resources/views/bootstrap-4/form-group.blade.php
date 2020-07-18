@@ -5,6 +5,8 @@
         {!! $slot !!}
     </div>
 
+    {!! $help ?? null !!}
+
     @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" class="d-block" />
     @endif

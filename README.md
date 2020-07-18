@@ -249,7 +249,6 @@ You can bind your own component classes to any of the elements. In the `form-com
 You can define a prefix in the `form-components.php` configuration file.
 
 ```php
-
 return [
     'prefix' => 'tailwind',
 ];
@@ -275,6 +274,50 @@ By the default, the errors messages are positioned under the element. To show th
 
     <x-form-errors name="company_name" />
 </x-form>
+```
+
+### Submit button
+
+The label defaults to *Submit* but you can use the slot to provide your own content.
+
+```blade
+<x-form-submit>
+    <span class="text-green-500">Send</span>
+</x-form-submit>
+```
+
+### Bootstrap 4
+
+You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by change the `framework` in the `form-components.php` configuration file.
+
+```php
+return [
+    'framework' => 'bootstrap-4',
+];
+```
+
+There is a little bit of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
+
+#### Input prepend
+
+```blade
+<x-form-input name="username" label="Username">
+    @slot('prepend')
+        <span>@</span>
+    @endslot
+</x-form-input>
+```
+
+#### Help text
+
+```blade
+<x-form-input name="username" label="Username">
+    @slot('help')
+        <small class="form-text text-muted">
+            Your username must be 8-20 characters long
+        </small>
+    @endslot
+</x-form-input>
 ```
 
 ### Testing

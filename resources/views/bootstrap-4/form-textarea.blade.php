@@ -4,6 +4,8 @@
     <textarea {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
         name="{{ $name }}">{!! $value !!}</textarea>
 
+    {!! $help ?? null !!}
+
     @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
