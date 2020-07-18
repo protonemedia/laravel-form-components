@@ -288,7 +288,7 @@ The label defaults to *Submit* but you can use the slot to provide your own cont
 
 ### Bootstrap 4
 
-You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by change the `framework` in the `form-components.php` configuration file.
+You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by updating the `framework` in the `form-components.php` configuration file.
 
 ```php
 return [
@@ -296,9 +296,11 @@ return [
 ];
 ```
 
-There is a little bit of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
+There is a little bit of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
 
-#### Input prepend
+#### Input prepend and append
+
+In addition to the Tailwind features, there is also support for [input groups](https://getbootstrap.com/docs/4.1/components/forms/#auto-sizing). Use the `prepend` and `append` slots to provide the contents.
 
 ```blade
 <x-form-input name="username" label="Username">
@@ -306,7 +308,15 @@ There is a little bit of styling added to the `form.blade.php` view to add suppo
         <span>@</span>
     @endslot
 </x-form-input>
+
+<x-form-input name="subdomain" label="Subdomain">
+    @slot('append')
+        <span>.protone.media</span>
+    @endslot
+</x-form-input>
 ```
+
+You can add [block-level help text](https://getbootstrap.com/docs/4.1/components/forms/#help-text) to any element by using the `help` slot.
 
 #### Help text
 
@@ -314,7 +324,7 @@ There is a little bit of styling added to the `form.blade.php` view to add suppo
 <x-form-input name="username" label="Username">
     @slot('help')
         <small class="form-text text-muted">
-            Your username must be 8-20 characters long
+            Your username must be 8-20 characters long.
         </small>
     @endslot
 </x-form-input>

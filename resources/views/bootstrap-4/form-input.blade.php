@@ -15,6 +15,14 @@
             type="{{ $type }}"
             value="{{ $value }}"
         />
+
+        @isset($append)
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    {!! $append !!}
+                </div>
+            </div>
+        @endisset
     </div>
 
     {!! $help ?? null !!}
