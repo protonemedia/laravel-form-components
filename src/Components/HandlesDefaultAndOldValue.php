@@ -20,7 +20,9 @@ trait HandlesDefaultAndOldValue
 
         $bind = $this->getBoundTarget($bind, $name);
 
-        $default = $bind->getTranslation($name, $language, false) ?: $default;
+        if ($bind) {
+            $default = $bind->getTranslation($name, $language, false) ?: $default;
+        }
 
         $this->value = old("{$name}.{$language}", $default);
     }

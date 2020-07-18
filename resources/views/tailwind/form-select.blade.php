@@ -18,7 +18,7 @@
         </select>
     </label>
 
-    @if($showErrors)
+    @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
     @endif
 </div>
