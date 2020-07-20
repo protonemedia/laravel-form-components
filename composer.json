@@ -1,10 +1,18 @@
 {
     "name": "protonemedia/laravel-form-components",
-    "description": "Set of Laravel Blade components to build Tailwind forms.",
+    "description": "Blade components to rapidly build forms with Tailwind CSS Custom Forms and Bootstrap 4.",
     "keywords": [
         "protonemedia",
         "tailwind",
         "tailwindcss",
+        "bootstrap",
+        "bootstrap4",
+        "laravel",
+        "form",
+        "forms",
+        "form-builder",
+        "form-components",
+        "laravel-form-builder",
         "laravel-form-components"
     ],
     "homepage": "https://github.com/protonemedia/laravel-form-components",
