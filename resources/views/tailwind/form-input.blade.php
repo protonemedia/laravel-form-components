@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class="@if($type === 'hidden') hidden @else mt-4 @endif">
     <label class="block">
         <x-form-label :label="$label" />
 
