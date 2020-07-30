@@ -5,10 +5,14 @@
         <input {!! $attributes->merge([
             'class' => 'form-input block w-full ' . ($label ? 'mt-1' : '')
         ]) !!}
-            name="{{ $name }}"
-            type="{{ $type }}"
-            value="{{ $value }}"
-        />
+            @if($isWired())
+                wire:model="{{ $name }}"
+            @else
+                name="{{ $name }}"
+                value="{{ $value }}"
+            @endif
+
+            type="{{ $type }}" />
     </label>
 
     @if($hasErrorAndShow($name))

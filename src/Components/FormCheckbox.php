@@ -34,7 +34,7 @@ class FormCheckbox extends Component
             $this->checked = true;
         }
 
-        if (!session()->hasOldInput()) {
+        if (!session()->hasOldInput() && $this->isNotWired()) {
             $boundValue = $this->getBoundValue($bind, $name);
 
             $this->checked = is_null($boundValue) ? $default : $boundValue;

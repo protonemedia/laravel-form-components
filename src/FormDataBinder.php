@@ -12,6 +12,11 @@ class FormDataBinder
     private array $bindings = [];
 
     /**
+     * Wired to a Livewire component.
+     */
+    private bool $wire = false;
+
+    /**
      * Bind a target to the current instance
      *
      * @param mixed $target
@@ -40,5 +45,20 @@ class FormDataBinder
     public function pop(): void
     {
         array_pop($this->bindings);
+    }
+
+    public function isWired(): bool
+    {
+        return $this->wire;
+    }
+
+    public function wire(): void
+    {
+        $this->wire = true;
+    }
+
+    public function endwire(): void
+    {
+        $this->wire = false;
     }
 }
