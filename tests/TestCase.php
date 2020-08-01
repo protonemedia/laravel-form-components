@@ -4,6 +4,7 @@ namespace ProtoneMedia\LaravelFormComponents\Tests;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
 use ProtoneMedia\LaravelFormComponents\Support\ServiceProvider;
 
@@ -24,7 +25,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app)
     {
-        return [ServiceProvider::class];
+        return [ServiceProvider::class, LivewireServiceProvider::class];
     }
 
     protected function registerTestRoute($uri, callable $post = null)

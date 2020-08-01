@@ -9,9 +9,8 @@
                 name="{{ $name }}"
             @endif
 
-            {!! $attributes->merge(['class' => 'form-textarea block w-full ' . ($label ? 'mt-1' : '')]) !!}>
-                @if(!$isWired()) {!! $value !!} @endif
-            </textarea>
+            {!! $attributes->merge(['class' => 'form-textarea block w-full ' . ($label ? 'mt-1' : '')]) !!}
+        >@unless($isWired()){!! $value !!}@endunless</textarea>
     </label>
 
     @if($hasErrorAndShow($name))

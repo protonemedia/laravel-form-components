@@ -1,7 +1,13 @@
 <div class="form-check">
     <input {!! $attributes->merge(['class' => 'form-check-input ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
         type="radio"
-        name="{{ $name }}"
+
+        @if($isWired())
+            wire:model="{{ $name }}"
+        @else
+            name="{{ $name }}"
+        @endif
+
         value="{{ $value }}"
 
         @if($checked)

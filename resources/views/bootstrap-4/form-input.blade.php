@@ -11,9 +11,14 @@
         @endisset
 
         <input {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
-            name="{{ $name }}"
             type="{{ $type }}"
-            value="{{ $value }}"
+
+            @if($isWired())
+                wire:model="{{ $name }}"
+            @else
+                name="{{ $name }}"
+                value="{{ $value }}"
+            @endif
         />
 
         @isset($append)

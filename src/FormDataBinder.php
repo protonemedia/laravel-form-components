@@ -47,17 +47,32 @@ class FormDataBinder
         array_pop($this->bindings);
     }
 
+    /**
+     * Returns wether the form is bound to a Livewire model.
+     *
+     * @return boolean
+     */
     public function isWired(): bool
     {
         return $this->wire;
     }
 
+    /**
+     * Enable Livewire binding.
+     *
+     * @return void
+     */
     public function wire(): void
     {
         $this->wire = true;
     }
 
-    public function endwire(): void
+    /**
+     * Disable Livewire binding.
+     *
+     * @return void
+     */
+    public function endWire(): void
     {
         $this->wire = false;
     }

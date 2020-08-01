@@ -41,7 +41,7 @@ class ServiceProvider extends BaseServiceProvider
         });
 
         Blade::directive('endwire', function () {
-            return '<?php app(\ProtoneMedia\LaravelFormComponents\FormDataBinder::class)->endwire(); ?>';
+            return '<?php app(\ProtoneMedia\LaravelFormComponents\FormDataBinder::class)->endWire(); ?>';
         });
 
         //

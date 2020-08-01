@@ -1,8 +1,14 @@
 <div class="form-check">
     <input {!! $attributes->merge(['class' => 'form-check-input ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
         type="checkbox"
-        name="{{ $name }}"
         value="{{ $value }}"
+
+        @if($isWired())
+            wire:model="{{ $name }}"
+        @else
+            name="{{ $name }}"
+        @endif
+
 
         @if($checked)
             checked="checked"

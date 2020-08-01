@@ -2,14 +2,13 @@
     <label class="flex items-center">
         <input {!! $attributes->merge(['class' => 'form-checkbox']) !!}
             type="checkbox"
+            value="{{ $value }}"
 
             @if($isWired())
                 wire:model="{{ $name }}"
             @else
                 name="{{ $name }}"
             @endif
-
-            value="{{ $value }}"
 
             @if($checked)
                 checked="checked"
