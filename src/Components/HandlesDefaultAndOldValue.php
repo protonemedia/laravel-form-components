@@ -12,6 +12,10 @@ trait HandlesDefaultAndOldValue
         $default = null,
         $language = null
     ) {
+        if ($this->isWired()) {
+            return;
+        }
+
         if (!$language) {
             $default = $this->getBoundValue($bind, $name) ?: $default;
 

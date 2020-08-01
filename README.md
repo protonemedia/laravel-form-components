@@ -14,6 +14,7 @@ A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms
 * Support for [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 * Bind a target to a form (or a set of elements) to provide default values.
+* Support for [Laravel Livewire](https://laravel-livewire.com)
 * Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable).
 * Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input).
 * Validation errors.
@@ -157,6 +158,51 @@ You can override the `@bind` directive by passing a target directly to the eleme
         <x-form-textarea :bind="false" name="description" label="Description" />
     @endbind
 </x-form>
+```
+
+#### Laravel Livewire
+
+You can use the `@wire` and `@endwire` directives to use bind a form to a Livewire component. Let's take a look at the `ContactForm` example from the official Livewire documentation.
+
+```php
+use Livewire\Component;
+
+class ContactForm extends Component
+{
+    public $name;
+    public $email;
+
+    public function submit()
+    {
+        $this->validate([
+            'name' => 'required|min:6',
+            'email' => 'required|email',
+        ]);
+
+        Contact::create([
+            'name' => $this->name,
+            'email' => $this->email,
+        ]);
+    }
+
+    public function render()
+    {
+        return view('livewire.contact-form');
+    }
+}
+```
+
+Normally you would use a `wire:model` attribute to bind a component property with a form element. By using the `@wire` directive, this package will automatically use the `wire:model` attribute instead of the `name` attribute.
+
+```blade
+<x-form wire:submit.prevent="submit">
+    @wire
+        <x-form-input name="name" />
+        <x-form-input name="email" />
+    @endwire
+
+    <x-form-submit>Save Contact</x-form-submit>
+</form>
 ```
 
 ### Select elements

@@ -1,9 +1,14 @@
-<div class="flex">
+<div class="flex flex-col">
     <label class="flex items-center">
         <input {!! $attributes->merge(['class' => 'form-checkbox']) !!}
             type="checkbox"
-            name="{{ $name }}"
             value="{{ $value }}"
+
+            @if($isWired())
+                wire:model="{{ $name }}"
+            @else
+                name="{{ $name }}"
+            @endif
 
             @if($checked)
                 checked="checked"

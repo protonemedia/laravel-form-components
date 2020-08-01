@@ -2,6 +2,7 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ViewErrorBag;
 
 trait HandlesValidationErrors
@@ -32,7 +33,7 @@ trait HandlesValidationErrors
      */
     public function hasError(string $name, string $bag = 'default'): bool
     {
-        $errors = request()->session()->get('errors') ?: new ViewErrorBag;
+        $errors = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag));
 
         $name = str_replace(['[', ']'], ['.', ''], $name);
 

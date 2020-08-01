@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="@if($type === 'hidden') d-none @else form-group @endif">
     <x-form-label :label="$label" :for="$name" />
 
     <div class="input-group">
@@ -11,9 +11,14 @@
         @endisset
 
         <input {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
-            name="{{ $name }}"
             type="{{ $type }}"
-            value="{{ $value }}"
+
+            @if($isWired())
+                wire:model="{{ $name }}"
+            @else
+                name="{{ $name }}"
+                value="{{ $value }}"
+            @endif
         />
 
         @isset($append)

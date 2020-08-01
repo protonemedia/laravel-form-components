@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 1.2.0 - 2020-08-01
+
+- Validation support for Laravel Livewire
+- Make hidden inputs visually hidden
+
 ## 1.1.0 - 2020-07-18
 
 - added support for Bootstrap 4

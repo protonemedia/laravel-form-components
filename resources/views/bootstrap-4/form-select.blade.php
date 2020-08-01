@@ -1,7 +1,13 @@
 <div class="form-group">
     <x-form-label :label="$label" :for="$name" />
 
-    <select name="{{ $name }}"
+    <select
+        @if($isWired())
+            wire:model="{{ $name }}"
+        @else
+            name="{{ $name }}"
+        @endif
+
         @if($multiple)
             multiple
         @endif

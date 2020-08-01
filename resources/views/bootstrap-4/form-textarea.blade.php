@@ -1,8 +1,15 @@
 <div class="form-group">
     <x-form-label :label="$label" :for="$name" />
 
-    <textarea {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
-        name="{{ $name }}">{!! $value !!}</textarea>
+    <textarea
+        @if($isWired())
+            wire:model="{{ $name }}"
+        @else
+            name="{{ $name }}"
+        @endif
+
+        {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
+    >@unless($isWired()){!! $value !!}@endunless</textarea>
 
     {!! $help ?? null !!}
 

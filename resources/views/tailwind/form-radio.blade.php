@@ -2,7 +2,13 @@
     <label class="inline-flex items-center">
         <input {!! $attributes->merge(['class' => 'form-radio']) !!}
             type="radio"
-            name="{{ $name }}"
+
+            @if($isWired())
+                wire:model="{{ $name }}"
+            @else
+                name="{{ $name }}"
+            @endif
+
             value="{{ $value }}"
 
             @if($checked)

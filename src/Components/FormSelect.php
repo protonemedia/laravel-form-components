@@ -31,9 +31,11 @@ class FormSelect extends Component
         $this->label   = $label;
         $this->options = $options;
 
-        $default = $this->getBoundValue($bind, $name) ?: $default;
+        if ($this->isNotWired()) {
+            $default = $this->getBoundValue($bind, $name) ?: $default;
 
-        $this->selectedKey = old($name, $default);
+            $this->selectedKey = old($name, $default);
+        }
 
         $this->multiple   = $multiple;
         $this->showErrors = $showErrors;
@@ -41,6 +43,10 @@ class FormSelect extends Component
 
     public function isSelected($key): bool
     {
+        if ($this->isWired()) {
+            return false;
+        }
+
         if ($this->selectedKey === $key) {
             return true;
         }

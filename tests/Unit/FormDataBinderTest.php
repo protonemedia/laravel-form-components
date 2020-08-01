@@ -33,4 +33,18 @@ class FormDataBinderTest extends TestCase
 
         $this->assertNull($binder->get());
     }
+
+    /** @test */
+    public function it_can_be_wired_to_a_livewire_property_or_not()
+    {
+        $binder = new FormDataBinder;
+
+        $this->assertFalse($binder->isWired());
+
+        $binder->wire();
+        $this->assertTrue($binder->isWired());
+
+        $binder->endWire();
+        $this->assertFalse($binder->isWired());
+    }
 }

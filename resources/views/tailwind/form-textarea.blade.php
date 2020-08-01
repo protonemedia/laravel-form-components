@@ -2,10 +2,15 @@
     <label class="block">
         <x-form-label :label="$label" />
 
-        <textarea {!! $attributes->merge([
-            'class' => 'form-textarea block w-full ' . ($label ? 'mt-1' : '')
-        ]) !!}
-            name="{{ $name }}">{!! $value !!}</textarea>
+        <textarea
+            @if($isWired())
+                wire:model="{{ $name }}"
+            @else
+                name="{{ $name }}"
+            @endif
+
+            {!! $attributes->merge(['class' => 'form-textarea block w-full ' . ($label ? 'mt-1' : '')]) !!}
+        >@unless($isWired()){!! $value !!}@endunless</textarea>
     </label>
 
     @if($hasErrorAndShow($name))
