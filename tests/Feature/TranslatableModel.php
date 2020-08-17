@@ -9,5 +9,5 @@ class TranslatableModel extends Model
 {
     use HasTranslations;
 
-    public $translatable = ['input'];
+    public $translatable = ['input', 'output'];
 }
