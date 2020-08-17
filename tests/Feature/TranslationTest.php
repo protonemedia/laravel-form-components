@@ -28,6 +28,16 @@ class TranslationTest extends TestCase
     }
 
     /** @test */
+    public function it_can_override_the_bind_with_a_different_target()
+    {
+        $this->registerTestRoute('translation-with-bind');
+
+        $this->visit('/translation-with-bind')
+            ->seeElement('input[name="output[nl]"][value="vaarwel"]')
+            ->seeElement('input[name="output[en]"][value="goodbye"]');
+    }
+
+    /** @test */
     public function it_shows_the_validation_errors_and_old_values_correctly()
     {
         $this->registerTestRoute('translation-with-bind', function (Request $request) {

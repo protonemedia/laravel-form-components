@@ -22,7 +22,9 @@ trait HandlesDefaultAndOldValue
             return $this->value = old($name, $default);
         }
 
-        $bind = $this->getBoundTarget($bind, $name);
+        if ($bind !== false) {
+            $bind = $bind ?: $this->getBoundTarget();
+        }
 
         if ($bind) {
             $default = $bind->getTranslation($name, $language, false) ?: $default;
