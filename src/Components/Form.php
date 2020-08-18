@@ -11,6 +11,7 @@ class Form extends Component
      * Request method.
      */
     public string $method;
+    public string $FormMethod;
 
     /**
      * Create a new component instance.
@@ -19,6 +20,7 @@ class Form extends Component
      */
     public function __construct(string $method = 'POST')
     {
+        $this->FormMethod = in_array(strtoupper($method),['DELETE','PUT','PATCH']) ? 'POST' : strtoupper($method);
         $this->method = strtoupper($method);
     }
 
