@@ -28,7 +28,7 @@ abstract class TestCase extends BaseTestCase
         return [ServiceProvider::class, LivewireServiceProvider::class];
     }
 
-    protected function registerTestRoute($uri, callable $post = null)
+    protected function registerTestRoute($uri, callable $post = null): self
     {
         Route::middleware('web')->group(function () use ($uri, $post) {
             Route::view($uri, $uri);
@@ -37,5 +37,7 @@ abstract class TestCase extends BaseTestCase
                 Route::post($uri, $post);
             }
         });
+
+        return $this;
     }
 }

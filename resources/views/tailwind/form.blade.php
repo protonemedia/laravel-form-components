@@ -1,13 +1,11 @@
-<form method="{{ $FormMethod }}" {!! $attributes !!}>
-
+<form method="{{ $spoofMethod ? 'POST' : $method }}" {!! $attributes !!}>
 @unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
     @csrf
 @endunless
 
-
-@unless(in_array($method, ['GET', 'POST']))
+@if($spoofMethod)
     @method($method)
-@endunless
+@endif
 
     {!! $slot !!}
 </form>

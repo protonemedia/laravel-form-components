@@ -11,7 +11,12 @@ class Form extends Component
      * Request method.
      */
     public string $method;
-    public string $FormMethod;
+
+    /**
+     * Form method spoofing to support PUT, PATCH and DELETE actions.
+     * https://laravel.com/docs/master/routing#form-method-spoofing
+     */
+    public bool $spoofMethod = false;
 
     /**
      * Create a new component instance.
@@ -20,8 +25,9 @@ class Form extends Component
      */
     public function __construct(string $method = 'POST')
     {
-        $this->FormMethod = in_array(strtoupper($method),['DELETE','PUT','PATCH']) ? 'POST' : strtoupper($method);
         $this->method = strtoupper($method);
+
+        $this->spoofMethod = in_array($this->method, ['PUT', 'PATCH', 'DELETE']);
     }
 
     /**
