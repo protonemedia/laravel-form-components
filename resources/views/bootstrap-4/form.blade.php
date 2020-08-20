@@ -1,4 +1,4 @@
-<form method="{{ $method }}" {!! $attributes->merge([
+<form method="{{ $spoofMethod ? 'POST' : $method }}" {!! $attributes->merge([
     'class' => $hasError() ? 'needs-validation' : ''
 ]) !!}>
     <style>
@@ -7,9 +7,13 @@
         }
     </style>
 
-    @unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
-        @csrf
-    @endunless
+@unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
+    @csrf
+@endunless
+
+@if($spoofMethod)
+    @method($method)
+@endif
 
     {!! $slot !!}
 </form>
