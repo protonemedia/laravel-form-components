@@ -2,10 +2,13 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
-## 1.2.0 - 2020-08-01
+## 1.3.0 - 2020-09-04
 
-- Validation support for Laravel Livewire
-- Make hidden inputs visually hidden
+- Support for Laravel 8.0
+
+## 1.2.0 - 2020-08-20
+
+- Form method spoofing to support PUT, PATCH and DELETE actions.
 
 ## 1.1.0 - 2020-07-18
 

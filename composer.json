@@ -27,11 +27,11 @@
     ],
     "require": {
         "php": "^7.4",
-        "illuminate/support": "^7.22.4"
+        "illuminate/support": "^7.22.4 || ^8.0"
     },
     "require-dev": {
         "livewire/livewire": "^1.3.2",
-        "orchestra/testbench-browser-kit": "^5.1",
+        "orchestra/testbench-browser-kit": "^5.1 || ^6.0",
         "phpunit/phpunit": "^8.5",
         "spatie/laravel-translatable": "^4.4"
     },
@@ -52,6 +52,8 @@
     "config": {
         "sort-packages": true
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [

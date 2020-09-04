@@ -24,7 +24,7 @@ A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms
 
 ## Requirements
 
-* PHP 7.4 + Laravel 7.0 only
+* PHP 7.4 + Laravel 7.0 and higher
 
 ## Installation
 
