@@ -1,5 +1,5 @@
 <div class="@if($type === 'hidden') d-none @else form-group @endif">
-    <x-form-label :label="$label" :for="$name" />
+    <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <div class="input-group">
         @isset($prepend)
@@ -18,6 +18,10 @@
             @else
                 name="{{ $name }}"
                 value="{{ $value }}"
+            @endif
+
+            @if($label && !$attributes->get('id'))
+                id="{{ $id() }}"
             @endif
         />
 

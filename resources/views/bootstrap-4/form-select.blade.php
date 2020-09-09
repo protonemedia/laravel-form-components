@@ -1,5 +1,5 @@
 <div class="form-group">
-    <x-form-label :label="$label" :for="$name" />
+    <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <select
         @if($isWired())
@@ -10,6 +10,10 @@
 
         @if($multiple)
             multiple
+        @endif
+
+        @if($label && !$attributes->get('id'))
+            id="{{ $id() }}"
         @endif
 
         {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}>

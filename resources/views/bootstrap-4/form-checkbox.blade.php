@@ -9,13 +9,16 @@
             name="{{ $name }}"
         @endif
 
+        @if($label && !$attributes->get('id'))
+            id="{{ $id() }}"
+        @endif
 
         @if($checked)
             checked="checked"
         @endif
     />
 
-    <x-form-label :label="$label" :for="$name" class="form-check-label" />
+    <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" class="form-check-label" />
 
     {!! $help ?? null !!}
 
