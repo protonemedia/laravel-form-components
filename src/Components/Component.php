@@ -9,6 +9,13 @@ use ProtoneMedia\LaravelFormComponents\FormDataBinder;
 abstract class Component extends BaseComponent
 {
     /**
+     * ID for this component.
+     *
+     * @var string
+     */
+    private $id;
+
+    /**
      * {@inheritDoc}
      */
     public function render()
@@ -40,5 +47,19 @@ abstract class Component extends BaseComponent
     public function isNotWired(): bool
     {
         return !$this->isWired();
+    }
+
+    /**
+     * Generates an ID, once, for this component.
+     *
+     * @return string
+     */
+    public function id(): string
+    {
+        if (!$this->id) {
+            $this->id = Str::random(4);
+        }
+
+        return $this->id;
     }
 }

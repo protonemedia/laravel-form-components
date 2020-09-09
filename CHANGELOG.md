@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 2.0.0 - 2020-09-09
+
+- Added sensible 'for' attributes to the Bootstrap 4 Label components.
+
+## 1.4.1 - 2020-09-09
+
+- Support for Laravel Livewire 2.0
+
 ## 1.4.0 - 2020-09-09
 
 - Support for Laravel 8.0

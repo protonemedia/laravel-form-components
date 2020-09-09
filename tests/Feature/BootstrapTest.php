@@ -41,4 +41,22 @@ class BootstrapTest extends TestCase
         $this->visit('/bootstrap-help')
             ->seeInElement('.form-text', 'Your username must be 8-20 characters long.');
     }
+
+    /** @test */
+    public function it_sets_the_id_on_the_label_or_generates_one()
+    {
+        $this->registerTestRoute('bootstrap-label-for');
+
+        $page = $this->visit('/bootstrap-label-for')
+            ->seeElement('textarea[id="text_b"]')
+            ->seeElement('label[for="text_b"]');
+
+        $inputId = $page->crawler()->filter('input[type="text"]')->attr('id');
+
+        $this->assertEquals(4, strlen($inputId));
+
+        $page
+            ->seeElement('input[id="' . $inputId . '"]')
+            ->seeElement('label[for="' . $inputId . '"]');
+    }
 }
