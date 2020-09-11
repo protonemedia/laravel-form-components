@@ -77,6 +77,8 @@ There is no configuration needed unless you want to [customize the Blade views a
 
 Generating HTML in PHP is always quite opinionated and limited. Blade Components are great because additional attributes are passed down to the element. That's why we prefer writing forms using components instead of using PHP builders. This way, you don't have to write extensions or custom code for any attribute you pass in. Let's take a look at this `x-form` example.
 
+The `action` attribute is optional, but you can pass a hard-coded, primitive value to the component using a simple HTML attribute. PHP expressions and variables can be passed to the component as well via attributes that use the `:` character as a prefix. Do you need Alpine.js or VueJS directives? No problem!
+
 ```blade
 <x-form action="/api/user">
     <!-- ... -->
