@@ -73,6 +73,22 @@ There is no configuration needed unless you want to [customize the Blade views a
 
 ## Usage
 
+### Preface
+
+Generating HTML in PHP is always quite opinionated and limited. Blade Components are great because additional attributes are passed down to the element. That's why we prefer writing forms using components instead of using PHP builders. This way, you don't have to write extensions or custom code for any attribute you pass in. Let's take a look at this `x-form` example.
+
+```blade
+<x-form action="/api/user">
+    <!-- ... -->
+</x-form>
+```
+
+```blade
+<x-form :action="route('api.user.store')" v-on:submit="checkForm">
+    <!-- ... -->
+</x-form>
+```
+
 ### Input and textarea elements
 
 The minimum requirement for an `input` or `textarea` is the `name` attribute.
