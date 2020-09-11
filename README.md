@@ -181,7 +181,7 @@ You can override the `@bind` directive by passing a target directly to the eleme
 
 #### Laravel Livewire
 
-You can use the `@wire` and `@endwire` directives to use bind a form to a Livewire component. Let's take a look at the `ContactForm` example from the official Livewire documentation.
+You can use the `@wire` and `@endwire` directives to bind a form to a Livewire component. Let's take a look at the `ContactForm` example from the official Livewire documentation.
 
 ```php
 use Livewire\Component;
