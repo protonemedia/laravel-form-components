@@ -17,11 +17,13 @@
         @endif
 
         {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}>
-        @foreach($options as $key => $option)
+        @forelse($options as $key => $option)
             <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
                 {{ $option }}
             </option>
-        @endforeach
+        @empty
+            {!! $slot !!}
+        @endforelse
     </select>
 
     {!! $help ?? null !!}
