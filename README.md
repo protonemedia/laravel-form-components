@@ -36,10 +36,6 @@ composer require protonemedia/laravel-form-components
 
 Make sure the [Tailwind plugin](https://github.com/tailwindcss/custom-forms#install) is installed and added to your `tailwind.config.js` file. If you're starting a new project, you can use the [Frontend preset for Tailwind CSS](https://github.com/laravel-frontend-presets/tailwindcss) which includes the Custom Forms plugin as well.
 
-## Configuration
-
-There is no configuration needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
-
 ## Quick example
 
 ```blade
@@ -71,9 +67,7 @@ There is no configuration needed unless you want to [customize the Blade views a
 
 <img src="https://github.com/pascalbaljetmedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450" />
 
-## Usage
-
-### Preface
+## Preface
 
 Generating HTML in PHP is always quite opinionated and limited. Blade Components are great because additional attributes are passed down to the element. That's why we prefer writing forms using components instead of using PHP builders. This way, you don't have to write extensions or custom code for any attribute you pass in. Let's take a look at this `x-form` example.
 
@@ -90,6 +84,12 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
     <!-- ... -->
 </x-form>
 ```
+
+## Configuration
+
+There is no configuration needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
+
+## Usage
 
 ### Input and textarea elements
 
@@ -237,6 +237,15 @@ $countries = [
 
 ```blade
 <x-form-select name="country_code" :options="$countries" />
+```
+
+You can provide a *slot* to the `select` element as well:
+
+```blade
+<x-form-select name="country_code">
+   <option value="be">Belgium</option>
+   <option value="nl">The Netherlands</option>
+</x-form-select>
 ```
 
 If you want a select element where multiple options can be selected, add the `multiple` attribute to the element. If you specify a default, make sure it is an array. This applies to bound targets as well.
