@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 2.1.0 - 2020-09-14
+
+- Select elements now support a slot
+
 ## 2.0.0 - 2020-09-09
 
 - Added sensible 'for' attributes to the Bootstrap 4 Label components.

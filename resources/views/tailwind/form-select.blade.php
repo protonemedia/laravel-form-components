@@ -16,11 +16,13 @@
             {!! $attributes->merge([
                 'class' => ($label ? 'mt-1' : '') . ' block w-full ' . ($multiple ? 'form-multiselect' : 'form-select')
             ]) !!}>
-            @foreach($options as $key => $option)
+            @forelse($options as $key => $option)
                 <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
                     {{ $option }}
                 </option>
-            @endforeach
+            @empty
+                {!! $slot !!}
+            @endforelse
         </select>
     </label>
 
