@@ -2,6 +2,8 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Support\Arr;
+
 class FormSelect extends Component
 {
     use HandlesValidationErrors;
@@ -47,14 +49,6 @@ class FormSelect extends Component
             return false;
         }
 
-        if ($this->selectedKey === $key) {
-            return true;
-        }
-
-        if (is_array($this->selectedKey) && in_array($key, $this->selectedKey)) {
-            return true;
-        }
-
-        return false;
+        return in_array($key, Arr::wrap($this->selectedKey));
     }
 }
