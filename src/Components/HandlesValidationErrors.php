@@ -2,7 +2,9 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Contracts\Support\MessageBag;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 
 trait HandlesValidationErrors
@@ -25,6 +27,19 @@ trait HandlesValidationErrors
     }
 
     /**
+     * Getter for the ErrorBag.
+     *
+     * @param string $bag
+     * @return \Illuminate\Contracts\Support\MessageBag
+     */
+    protected function getErrorBag(string $bag = 'default'): MessageBag
+    {
+        $bags = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag));
+
+        return $bags->getBag($bag);
+    }
+
+    /**
      * Returns a boolean wether the given attribute has an error.
      *
      * @param string $name
@@ -33,10 +48,10 @@ trait HandlesValidationErrors
      */
     public function hasError(string $name, string $bag = 'default'): bool
     {
-        $errors = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag));
+        $name = str_replace(['[', ']'], ['.', ''], Str::before($name, '[]'));
 
-        $name = str_replace(['[', ']'], ['.', ''], $name);
+        $errorBag = $this->getErrorBag($bag);
 
-        return $errors->getBag($bag)->has($name);
+        return $errorBag->has($name) || $errorBag->has($name . '.*');
     }
 }

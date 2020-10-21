@@ -1,10 +1,10 @@
-<x-form action="/checkbox-validation">
+<x-form>
     <x-form-group>
-        <x-form-checkbox name="checkbox[]" value="a" :default="request()->query('check') == 'a'" />
+        <x-form-checkbox name="checkbox[]" value="a" />
     </x-form-group>
 
     <x-form-group>
-        <x-form-checkbox name="checkbox[]" value="b" :default="request()->query('check') == 'b'" />
+        <x-form-checkbox name="checkbox[]" value="b" :default="old() ? false : true" />
     </x-form-group>
 
     <x-form-submit />

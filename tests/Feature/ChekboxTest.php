@@ -21,13 +21,13 @@ class ChekboxTest extends TestCase
     public function it_does_check_the_right_input_element_after_a_validation_error()
     {
         $this->registerTestRoute('checkbox-validation', function (Request $request) {
-            $data = $request->validate([
+            $request->validate([
                 'checkbox'   => 'required|array',
                 'checkbox.*' => 'in:a',
             ]);
         });
 
-        $this->visit('/checkbox-validation?check=b')
+        $this->visit('/checkbox-validation')
             ->seeElement('input[value="a"]:not(:checked)')
             ->seeElement('input[value="b"]:checked')
             ->press('Submit')

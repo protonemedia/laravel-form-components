@@ -3,6 +3,7 @@
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class FormSelect extends Component
 {
@@ -34,9 +35,11 @@ class FormSelect extends Component
         $this->options = $options;
 
         if ($this->isNotWired()) {
-            $default = $this->getBoundValue($bind, $name) ?: $default;
+            $inputName = Str::before($name, '[]');
 
-            $this->selectedKey = old($name, $default);
+            $default = $this->getBoundValue($bind, $inputName) ?: $default;
+
+            $this->selectedKey = old($inputName, $default);
         }
 
         $this->multiple   = $multiple;
