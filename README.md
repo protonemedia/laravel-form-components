@@ -338,7 +338,7 @@ Now all components can be referenced like so:
 
 ### Error messages
 
-By the default, the errors messages are positioned under the element. To show these messages, we created a `FormErrors` component. You can manually use this component as well.
+By the default, the errors messages are positioned under the element. To show these messages, we created a `FormErrors` component. You can manually use this component as well. The element takes an optional `bag` attribute to specify the `ErrorBag`, which defaults to `default`.
 
 ```blade
 <x-form>
@@ -347,6 +347,8 @@ By the default, the errors messages are positioned under the element. To show th
     <!-- other elements -->
 
     <x-form-errors name="company_name" />
+
+    <x-form-errors name="company_name" bag="register" />
 </x-form>
 ```
 
