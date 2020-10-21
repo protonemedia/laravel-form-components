@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 2.1.2 - 2020-09-29
+
+- Bugfix for multiple checkbox/radio elements with the same name
+
+## 2.1.1 - 2020-09-29
+
+- Bugfix for select options with numeric keys
+
 ## 2.1.0 - 2020-09-14
 
 - Select elements now support a slot

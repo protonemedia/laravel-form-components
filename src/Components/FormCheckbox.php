@@ -2,6 +2,9 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
 class FormCheckbox extends Component
 {
     use HandlesValidationErrors;
@@ -30,12 +33,19 @@ class FormCheckbox extends Component
         $this->value      = $value;
         $this->showErrors = $showErrors;
 
-        if (old($name)) {
-            $this->checked = true;
+        $inputName = Str::before($name, '[]');
+
+        if ($oldData = old($inputName)) {
+            $this->checked = in_array($value, Arr::wrap($oldData));
         }
 
         if (!session()->hasOldInput() && $this->isNotWired()) {
-            $boundValue = $this->getBoundValue($bind, $name);
+            $boundValue = $this->getBoundValue($bind, $inputName);
+
+            if (is_array($boundValue)) {
+                $this->checked = in_array($value, $boundValue);
+                return;
+            }
 
             $this->checked = is_null($boundValue) ? $default : $boundValue;
         }
