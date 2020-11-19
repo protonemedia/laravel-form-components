@@ -8,7 +8,7 @@
 
 A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
 
-### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/WigAaQsPgSA](https://youtu.be/WigAaQsPgSA)
+### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
 
 ## Features
 
