@@ -20,7 +20,7 @@ jobs:
                         testbench: 5.*
                         livewire: 1.*
 
-        name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
+        name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.framework }}
 
         steps:
             -   name: Checkout code
