@@ -5,6 +5,7 @@ use ProtoneMedia\LaravelFormComponents\Components;
 return [
     'prefix' => '',
 
+    /** tailwind | tailwind-2 | bootstrap-4 */
     'framework' => 'tailwind',
 
     'components' => [

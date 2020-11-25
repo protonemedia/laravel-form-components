@@ -6,15 +6,19 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-form-components)
 
-A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+
+### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
 
 ## Features
 
 * Components for input, textarea, select, multi-select, checkbox and radio elements.
-* Support for [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
+* Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and
+* Support for Tailwind v2 with [Tailwind Forms](https://tailwindcss-forms.vercel.app/) and
+* Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 * Bind a target to a form (or a set of elements) to provide default values.
-* Support for [Laravel Livewire](https://laravel-livewire.com).
+* Support for [Laravel Livewire](https://laravel-livewire.com) v2.
 * Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable).
 * Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input).
 * Validation errors.
@@ -87,7 +91,15 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
 
 ## Configuration
 
-There is no configuration needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
+You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Use the `artisan vendor:publish` command to publish the configuration file.
+
+```php
+return [
+    'framework' => 'bootstrap-4',
+];
+```
+
+No further configuration is needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
 
 ## Usage
 
