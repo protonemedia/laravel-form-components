@@ -13,7 +13,9 @@ A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms
 ## Features
 
 * Components for input, textarea, select, multi-select, checkbox and radio elements.
-* Support for [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
+* Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and
+* Support for Tailwind v2 with [Tailwind Forms](https://tailwindcss-forms.vercel.app/) and
+* Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 * Bind a target to a form (or a set of elements) to provide default values.
 * Support for [Laravel Livewire](https://laravel-livewire.com).
@@ -89,7 +91,15 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
 
 ## Configuration
 
-There is no configuration needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
+You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Use the `artisan vendor:publish` command to publish the configuration file.
+
+```php
+return [
+    'framework' => 'bootstrap-4',
+];
+```
+
+No further configuration is needed unless you want to [customize the Blade views and components](#customize-the-blade-views).
 
 ## Usage
 
