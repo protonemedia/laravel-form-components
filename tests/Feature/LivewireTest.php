@@ -53,8 +53,9 @@ class LivewireTest extends TestCase
             ->set('multi_select', [])
             ->set('checkbox', false)
             ->set('radio', false)
-            ->call('submit')
-            ->assertSeeHtml('The input field is required')
+            ->call('submit');
+
+        $component->assertSeeHtml('The input field is required')
             ->assertSeeHtml('The textarea field is required')
             ->assertSeeHtml('The select field is required')
             ->assertSeeHtml('The multi select field is required')
