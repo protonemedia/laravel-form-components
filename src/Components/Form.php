@@ -38,7 +38,7 @@ class Form extends Component
      */
     public function hasError($bag = 'default'): bool
     {
-        $errors = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag));
+        $errors = View::shared('errors', fn () => session()->get('errors', new ViewErrorBag));
 
         return $errors->getBag($bag)->isNotEmpty();
     }
