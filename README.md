@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-form-components)
 
-A set of Blade components to rapidly build forms with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
 
 ### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
 
