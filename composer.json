@@ -31,6 +31,7 @@
     },
     "require-dev": {
         "livewire/livewire": "^2.0",
+        "mockery/mockery": "^1.3.3",
         "orchestra/testbench-browser-kit": "^5.1 || ^6.0",
         "phpunit/phpunit": "^8.5 || ^9.0",
         "spatie/laravel-translatable": "^4.4",
