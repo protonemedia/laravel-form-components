@@ -27,7 +27,8 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "illuminate/support": "^7.22.4 || ^8.0"
+        "illuminate/support": "^7.22.4 || ^8.0",
+        "symfony/http-foundation": "^5.1.2"
     },
     "require-dev": {
         "livewire/livewire": "^2.0",
