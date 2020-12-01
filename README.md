@@ -18,7 +18,7 @@ A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://
 * Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 * Bind a target to a form (or a set of elements) to provide default values.
-* Support for [Laravel Livewire](https://laravel-livewire.com).
+* Support for [Laravel Livewire](https://laravel-livewire.com) v2.
 * Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable).
 * Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input).
 * Validation errors.
