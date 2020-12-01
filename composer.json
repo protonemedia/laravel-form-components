@@ -33,7 +33,8 @@
         "livewire/livewire": "^2.0",
         "orchestra/testbench-browser-kit": "^5.1 || ^6.0",
         "phpunit/phpunit": "^8.5 || ^9.0",
-        "spatie/laravel-translatable": "^4.4"
+        "spatie/laravel-translatable": "^4.4",
+        "symfony/dom-crawler": "^5.1.14"
     },
     "autoload": {
         "psr-4": {
