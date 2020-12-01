@@ -10,6 +10,7 @@ jobs:
             matrix:
                 php: [8.0, 7.4]
                 laravel: [8.*, 7.*]
+                framework: [tailwind, tailwind-2, bootstrap-4]
                 dependency-version: [prefer-lowest, prefer-stable]
                 include:
                     -   laravel: 8.*
@@ -17,7 +18,7 @@ jobs:
                     -   laravel: 7.*
                         testbench: 5.*
 
-        name: P${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.framework }}
+        name: P${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }} - Front-end Framework ${{ matrix.framework }}
 
         steps:
             -   name: Checkout code
