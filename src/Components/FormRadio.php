@@ -9,12 +9,14 @@ class FormRadio extends Component
 
     public string $name;
     public string $label;
+    public string $help;
     public $value;
     public bool $checked = false;
 
     public function __construct(
         string $name,
         string $label = '',
+        string $help = '',
         $value = 1,
         $bind = null,
         bool $default = false,
@@ -22,6 +24,7 @@ class FormRadio extends Component
     ) {
         $this->name       = $name;
         $this->label      = $label;
+        $this->help      = $help;
         $this->value      = $value;
         $this->showErrors = $showErrors;
 

@@ -12,6 +12,7 @@ class FormSelect extends Component
 
     public string $name;
     public string $label;
+    public string $help;
     public $options;
     public $selectedKey;
     public bool $multiple;
@@ -24,6 +25,7 @@ class FormSelect extends Component
     public function __construct(
         string $name,
         string $label = '',
+        string $help = '',
         $options = [],
         $bind = null,
         $default = null,
@@ -32,6 +34,7 @@ class FormSelect extends Component
     ) {
         $this->name    = $name;
         $this->label   = $label;
+        $this->help   = $help;
         $this->options = $options;
 
         if ($this->isNotWired()) {
