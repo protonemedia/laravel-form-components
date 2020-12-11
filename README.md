@@ -13,11 +13,11 @@ A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://
 ## Features
 
 * Components for input, textarea, select, multi-select, checkbox and radio elements.
-* Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app) and
-* Support for Tailwind v2 with [Tailwind Forms](https://tailwindcss-forms.vercel.app/) and
+* Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app).
+* Support for Tailwind v2 with [Tailwind Forms](https://tailwindcss-forms.vercel.app/).
 * Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
-* Bind a target to a form (or a set of elements) to provide default values.
+* Bind a target to a form (or a set of elements) to provide default values (model binding).
 * Support for [Laravel Livewire](https://laravel-livewire.com) v2.
 * Support for Spatie's [laravel-translatable](https://github.com/spatie/laravel-translatable).
 * Re-populate forms with [old input](https://laravel.com/docs/master/requests#old-input).
