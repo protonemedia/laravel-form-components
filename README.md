@@ -240,6 +240,16 @@ Normally you would use a `wire:model` attribute to bind a component property wit
 </form>
 ```
 
+Additionally, you can pass an optional modifier to the `@wire` directive. This feature was added in v2.4.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
+
+```blade
+<x-form wire:submit.prevent="submit">
+    @wire('debounce.500ms')
+        <x-form-input name="email" />
+    @endwire
+</form>
+```
+
 ### Select elements
 
 Besides the `name` attribute, the `select` element has a required `options` attribute, which should be a simple *key-value* array.

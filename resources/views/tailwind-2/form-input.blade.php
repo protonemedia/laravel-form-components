@@ -6,7 +6,7 @@
             'class' => 'block w-full ' . ($label ? 'mt-1' : '')
         ]) !!}
             @if($isWired())
-                wire:model="{{ $name }}"
+                wire:model{!! $wireModifier() !!}="{{ $name }}"
             @else
                 name="{{ $name }}"
                 value="{{ $value }}"
