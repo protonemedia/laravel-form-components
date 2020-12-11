@@ -4,7 +4,7 @@
             type="radio"
 
             @if($isWired())
-                wire:model="{{ $name }}"
+                wire:model{!! $wireModifier() !!}="{{ $name }}"
             @else
                 name="{{ $name }}"
             @endif

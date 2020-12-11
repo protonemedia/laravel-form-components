@@ -14,7 +14,7 @@ class FormDataBinder
     /**
      * Wired to a Livewire component.
      */
-    private bool $wire = false;
+    private $wire = false;
 
     /**
      * Bind a target to the current instance
@@ -54,17 +54,28 @@ class FormDataBinder
      */
     public function isWired(): bool
     {
-        return $this->wire;
+        return $this->wire !== false;
     }
 
     /**
-     * Enable Livewire binding.
+     * Returns the modifier, if set.
      *
+     * @return string|null
+     */
+    public function getWireModifier(): ?string
+    {
+        return is_string($this->wire) ? $this->wire : null;
+    }
+
+    /**
+     * Enable Livewire binding with an optional modifier.
+     *
+     * @param string $modifier
      * @return void
      */
-    public function wire(): void
+    public function wire($modifier = null): void
     {
-        $this->wire = true;
+        $this->wire = $modifier ?: null;
     }
 
     /**

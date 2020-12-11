@@ -50,6 +50,18 @@ abstract class Component extends BaseComponent
     }
 
     /**
+     * Returns the optional wire modifier.
+     *
+     * @return string
+     */
+    public function wireModifier(): ?string
+    {
+        $modifier = app(FormDataBinder::class)->getWireModifier();
+
+        return $modifier ? ".{$modifier}" : null;
+    }
+
+    /**
      * Generates an ID, once, for this component.
      *
      * @return string
