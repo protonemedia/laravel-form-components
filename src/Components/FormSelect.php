@@ -30,12 +30,12 @@ class FormSelect extends Component
         $default = null,
         bool $multiple = false,
         bool $showErrors = true,
-        bool $relation = false
+        bool $manyRelation = false
     ) {
-        $this->name             = $name;
-        $this->label            = $label;
-        $this->options          = $options;
-        $this->eloquentRelation = $relation;
+        $this->name         = $name;
+        $this->label        = $label;
+        $this->options      = $options;
+        $this->manyRelation = $manyRelation;
 
         if ($this->isNotWired()) {
             $inputName = Str::before($name, '[]');
