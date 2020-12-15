@@ -61,9 +61,13 @@ trait HandlesBoundValues
         $relation = $bind->{$name}();
 
         if ($relation instanceof BelongsToMany) {
+            $related = $relation->getRelated();
+
+            $relatedKeyName = $relation->getRelatedKeyName();
+
             return $relation->getBaseQuery()
-                ->get($relation->getQualifiedRelatedKeyName())
-                ->pluck($relation->getRelatedKeyName())
+                ->get($related->qualifyColumn($relatedKeyName))
+                ->pluck($relatedKeyName)
                 ->all();
         }
     }

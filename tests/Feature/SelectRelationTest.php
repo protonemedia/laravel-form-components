@@ -36,7 +36,7 @@ class SelectRelationTest extends TestCase
 
         $post->comments()->sync([$commentA->getKey(), $commentC->getKey()]);
 
-        $options = Comment::get()->keyBy->id->map->content;
+        $options = Comment::get()->pluck('content', 'id');
 
         Route::get('select-relation', function () use ($post, $options) {
             return view('select-relation')
