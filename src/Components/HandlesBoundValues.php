@@ -2,10 +2,14 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use ProtoneMedia\LaravelFormComponents\FormDataBinder;
 
 trait HandlesBoundValues
 {
+    protected $eloquentRelation = false;
+
     /**
      * Get an instance of FormDataBinder.
      *
@@ -41,6 +45,26 @@ trait HandlesBoundValues
 
         $bind = $bind ?: $this->getBoundTarget();
 
+        if ($this->eloquentRelation) {
+            return $this->findOptionsFromRelation($bind, $name);
+        }
+
         return data_get($bind, $name);
+    }
+
+    private function findOptionsFromRelation($bind, string $name)
+    {
+        if (!$bind instanceof Model) {
+            return;
+        }
+
+        $relation = $bind->{$name}();
+
+        if ($relation instanceof BelongsToMany) {
+            return $relation->getBaseQuery()
+                ->get($relation->getQualifiedRelatedKeyName())
+                ->pluck($relation->getRelatedKeyName())
+                ->all();
+        }
     }
 }
