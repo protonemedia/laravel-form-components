@@ -46,11 +46,9 @@ trait HandlesBoundValues
 
         $bind = $bind ?: $this->getBoundTarget();
 
-        if ($this->manyRelation) {
-            return $this->getAttachedKeysFromRelation($bind, $name);
-        }
-
-        return data_get($bind, $name);
+        return $this->manyRelation
+            ? $this->getAttachedKeysFromRelation($bind, $name)
+            : data_get($bind, $name);
     }
 
     private function getAttachedKeysFromRelation($bind, string $name)
