@@ -68,10 +68,14 @@ abstract class Component extends BaseComponent
      */
     public function id(): string
     {
-        if (!$this->id) {
-            $this->id = Str::random(4);
+        if ($this->id) {
+            return $this->id;
         }
 
-        return $this->id;
+        if ($this->name) {
+            return $this->id = "auto_id_" . $this->name;
+        }
+
+        return $this->id = Str::random(4);
     }
 }
