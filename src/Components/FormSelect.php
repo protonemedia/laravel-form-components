@@ -59,10 +59,6 @@ class FormSelect extends Component
             return false;
         }
 
-        $haystack = $this->selectedKey instanceof Arrayable
-            ? $this->selectedKey->toArray()
-            : $this->selectedKey;
-
-        return in_array($key, Arr::wrap($haystack));
+        return in_array($key, Arr::wrap($this->selectedKey));
     }
 }
