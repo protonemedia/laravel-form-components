@@ -42,7 +42,7 @@ You can install the package via composer:
 composer require protonemedia/laravel-form-components
 ```
 
-Make sure the [Tailwind plugin](https://github.com/tailwindcss/custom-forms#install) is installed and added to your `tailwind.config.js` file. If you're starting a new project, you can use the [Frontend preset for Tailwind CSS](https://github.com/laravel-frontend-presets/tailwindcss) which includes the Custom Forms plugin as well.
+If you're using Tailwind, make sure the right plugin ([v1](https://github.com/tailwindcss/custom-forms#install) or [v2](https://tailwindcss-forms.vercel.app/)) is installed and configured.
 
 ## Quick example
 
