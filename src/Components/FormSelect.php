@@ -2,6 +2,7 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -28,11 +29,13 @@ class FormSelect extends Component
         $bind = null,
         $default = null,
         bool $multiple = false,
-        bool $showErrors = true
+        bool $showErrors = true,
+        bool $manyRelation = false
     ) {
-        $this->name    = $name;
-        $this->label   = $label;
-        $this->options = $options;
+        $this->name         = $name;
+        $this->label        = $label;
+        $this->options      = $options;
+        $this->manyRelation = $manyRelation;
 
         if ($this->isNotWired()) {
             $inputName = Str::before($name, '[]');
@@ -40,6 +43,10 @@ class FormSelect extends Component
             $default = $this->getBoundValue($bind, $inputName) ?: $default;
 
             $this->selectedKey = old($inputName, $default);
+
+            if ($this->selectedKey instanceof Arrayable) {
+                $this->selectedKey = $this->selectedKey->toArray();
+            }
         }
 
         $this->multiple   = $multiple;
