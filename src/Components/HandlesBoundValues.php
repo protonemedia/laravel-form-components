@@ -9,6 +9,12 @@ use ProtoneMedia\LaravelFormComponents\FormDataBinder;
 
 trait HandlesBoundValues
 {
+    /**
+     * Wether to retrieve the default value as a single
+     * attribute or as a collection from the database.
+     *
+     * @var boolean
+     */
     protected $manyRelation = false;
 
     /**
@@ -51,10 +57,17 @@ trait HandlesBoundValues
             : data_get($bind, $name);
     }
 
-    private function getAttachedKeysFromRelation($bind, string $name)
+    /**
+     * Returns an array with the attached keys.
+     *
+     * @param mixed $bind
+     * @param string $name
+     * @return void
+     */
+    private function getAttachedKeysFromRelation($bind, string $name): ?array
     {
         if (!$bind instanceof Model) {
-            return;
+            return data_get($bind, $name);
         }
 
         $relation = $bind->{$name}();
@@ -76,5 +89,7 @@ trait HandlesBoundValues
                 ->pluck($parentKeyName)
                 ->all();
         }
+
+        return data_get($bind, $name);
     }
 }
