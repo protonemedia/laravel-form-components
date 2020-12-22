@@ -53,7 +53,7 @@ class BootstrapTest extends TestCase
 
         $inputId = $page->crawler()->filter('input[type="text"]')->attr('id');
 
-        $this->assertEquals(4, strlen($inputId));
+        $this->assertStringStartsWith("auto_id_", $inputId);
 
         $page
             ->seeElement('input[id="' . $inputId . '"]')
