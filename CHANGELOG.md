@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 2.5.0 - 2020-12-22
+
+- Support for `BelongsToMany`, `MorphMany`, and `MorphToMany` relationships (select element)
+
+## 2.4.0 - 2020-12-11
+
+- Support for Livewire modifiers
+
 ## 2.3.0 - 2020-12-01
 
 - Support for PHP 8.0
