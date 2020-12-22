@@ -282,9 +282,9 @@ If you want a select element where multiple options can be selected, add the `mu
 
 #### Using Eloquent relationships
 
-This package has built-in support for `BelongsToMany`, `MorphMany` and `MorphToMany` relationships. To leverage this feature, you must add both the `multiple` and `many-relation` attribute to the select element.
+This package has built-in support for `BelongsToMany`, `MorphMany`, and `MorphToMany` relationships. To utilize this feature, you must add both the `multiple` and `many-relation` attribute to the select element.
 
-In the example below, you can attach one or more tags to the bound video. By using the `many-relation` attribute, it will correctly retrieve the selected options from the database.
+In the example below, you can attach one or more tags to the bound video. By using the `many-relation` attribute, it will correctly retrieve the selected options (attached tags) from the database.
 
 ```blade
 <x-form>
