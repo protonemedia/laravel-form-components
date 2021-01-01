@@ -51,7 +51,7 @@ If you're using Tailwind, make sure the right plugin ([v1](https://github.com/ta
     @bind($user)
         <x-form-input name="last_name" label="Last Name" />
         <x-form-select name="country_code" :options="$options" />
-        <x-form-select name="interests" :options="$multiOptions" label="Select your interests" multiple />
+        <x-form-select name="interests[]" :options="$multiOptions" label="Select your interests" multiple />
 
         <!-- \Spatie\Translatable\HasTranslations -->
         <x-form-textarea name="biography" language="nl" placeholder="Dutch Biography" />
@@ -277,7 +277,7 @@ You can provide a *slot* to the `select` element as well:
 If you want a select element where multiple options can be selected, add the `multiple` attribute to the element. If you specify a default, make sure it is an array. This applies to bound targets as well.
 
 ```blade
-<x-form-select name="country_code" :options="$countries" multiple :default="['be', 'nl']" />
+<x-form-select name="country_code[]" :options="$countries" multiple :default="['be', 'nl']" />
 ```
 
 #### Using Eloquent relationships
@@ -289,7 +289,7 @@ In the example below, you can attach one or more tags to the bound video. By usi
 ```blade
 <x-form>
     @bind($video)
-        <x-form-select name="tags" :options="$tags" multiple many-relation />
+        <x-form-select name="tags[]" :options="$tags" multiple many-relation />
     @endbind
 </x-form>
 ```
