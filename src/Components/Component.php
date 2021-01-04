@@ -73,9 +73,19 @@ abstract class Component extends BaseComponent
         }
 
         if ($this->name) {
-            return $this->id = "auto_id_" . $this->name;
+            return $this->id = $this->generateIdByName();
         }
 
         return $this->id = Str::random(4);
+    }
+
+    /**
+     * Generates an ID by the name attribute.
+     *
+     * @return string
+     */
+    protected function generateIdByName(): string
+    {
+        return "auto_id_" . $this->name;
     }
 }

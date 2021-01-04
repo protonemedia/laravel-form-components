@@ -50,4 +50,14 @@ class FormCheckbox extends Component
             $this->checked = is_null($boundValue) ? $default : $boundValue;
         }
     }
+
+    /**
+     * Generates an ID by the name and value attributes.
+     *
+     * @return string
+     */
+    protected function generateIdByName(): string
+    {
+        return "auto_id_" . $this->name . "_" . $this->value;
+    }
 }
