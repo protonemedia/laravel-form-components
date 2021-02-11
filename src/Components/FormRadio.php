@@ -32,7 +32,11 @@ class FormRadio extends Component
         if (!session()->hasOldInput() && $this->isNotWired()) {
             $boundValue = $this->getBoundValue($bind, $name);
 
-            $this->checked = (is_null($boundValue) ? $default : $boundValue) == $this->value;
+            if (!is_null($boundValue)) {
+                $this->checked = $boundValue == $this->value;
+            } else {
+                $this->checked = $default;
+            }
         }
     }
 
