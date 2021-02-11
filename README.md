@@ -321,8 +321,17 @@ You can group checkbox and radio elements on the same horizontal row by adding a
 
 ```blade
 <x-form-group name="notification_channel" label="How do you want to receive your notifications?" inline>
-    <x-form-checkbox name="notification_channel" value="mail" label="Mail" />
-    <x-form-checkbox name="notification_channel" value="slack" label="Slack" />
+    <x-form-radio name="notification_channel" value="mail" label="Mail" />
+    <x-form-radio name="notification_channel" value="slack" label="Slack" />
+</x-form-group>
+```
+
+When you're not using target binding, you can use the `default` attribute the mark a radio element as checked:
+
+```blade
+<x-form-group name="notification_channel" label="How do you want to receive your notifications?">
+    <x-form-radio name="notification_channel" value="mail" label="Mail" default />
+    <x-form-radio name="notification_channel" value="slack" label="Slack" />
 </x-form-group>
 ```
 
