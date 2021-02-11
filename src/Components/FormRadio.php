@@ -17,7 +17,7 @@ class FormRadio extends Component
         string $label = '',
         $value = 1,
         $bind = null,
-        bool $default = null,
+        bool $default = false,
         bool $showErrors = false
     ) {
         $this->name       = $name;
@@ -34,8 +34,8 @@ class FormRadio extends Component
 
             if (!is_null($boundValue)) {
                 $this->checked = $boundValue == $this->value;
-            } elseif (!is_null($default)) {
-                $this->checked = $default == $this->value;
+            } else {
+                $this->checked = $default;
             }
         }
     }

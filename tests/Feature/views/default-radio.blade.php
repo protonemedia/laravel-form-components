@@ -4,7 +4,7 @@ $target = ['radio' => 'a'];
 
 <x-form>
     <x-form-group>
-        <x-form-radio name="radio" value="1" default="1" />
+        <x-form-radio name="radio" value="1" default />
     </x-form-group>
 
     <x-form-group>
