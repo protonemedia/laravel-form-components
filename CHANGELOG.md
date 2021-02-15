@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 2.5.4 - 2020-02-15
+
+- Bugfix for old nested data
+
 ## 2.5.3 - 2020-02-11
 
 - Bugfix for setting radio elements as checked/default
