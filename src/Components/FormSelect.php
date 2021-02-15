@@ -42,7 +42,7 @@ class FormSelect extends Component
 
             $default = $this->getBoundValue($bind, $inputName) ?: $default;
 
-            $this->selectedKey = old($inputName, $default);
+            $this->selectedKey = old(static::convertBracketsToDots($inputName), $default);
 
             if ($this->selectedKey instanceof Arrayable) {
                 $this->selectedKey = $this->selectedKey->toArray();

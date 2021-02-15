@@ -52,6 +52,34 @@ class BindTest extends TestCase
     }
 
     /** @test */
+    public function it_handles_old_nested_data()
+    {
+        $this->registerTestRoute('nested-validation-errors', function (Request $request) {
+            $request->validate([
+                'input.nested'    => 'required',
+                'textarea.nested' => 'required',
+                'select.nested'   => 'required',
+                'checkbox.nested' => 'required',
+                'radio.nested'    => 'required',
+            ]);
+        });
+
+        $this->visit('/nested-validation-errors')
+            ->type('d', 'input[nested]')
+            ->type('e', 'textarea[nested]')
+            ->select('f', 'select[nested]')
+            ->uncheck('checkbox[nested]')
+            ->check('radio[nested]')
+            ->press('Submit')
+            ->seeElement('input[name="input[nested]"][value="d"]')
+            ->seeInElement('textarea[name="textarea[nested]"]', 'e')
+            ->seeElement('option[value="f"]:selected')
+            ->seeElement('input[name="checkbox[nested]"]')
+            ->dontSeeElement('input[name="checkbox[nested]"]:checked')
+            ->seeElement('input[name="radio[nested]"]:checked');
+    }
+
+    /** @test */
     public function it_overrides_the_default_value()
     {
         $this->registerTestRoute('default-values-with-bound-target');

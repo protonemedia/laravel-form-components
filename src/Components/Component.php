@@ -88,4 +88,15 @@ abstract class Component extends BaseComponent
     {
         return "auto_id_" . $this->name;
     }
+
+    /**
+     * Converts a bracket-notation to a dotted-notation
+     *
+     * @param string $name
+     * @return string
+     */
+    protected static function convertBracketsToDots($name): string
+    {
+        return str_replace(['[', ']'], ['.', ''], $name);
+    }
 }
