@@ -10,6 +10,7 @@ class FormInput extends Component
     public string $name;
     public string $label;
     public string $type;
+    public bool $floating;
 
     public $value;
 
@@ -25,12 +26,14 @@ class FormInput extends Component
         $bind = null,
         $default = null,
         $language = null,
-        bool $showErrors = true
+        bool $showErrors = true,
+        bool $floating = false
     ) {
         $this->name       = $name;
         $this->label      = $label;
         $this->type       = $type;
         $this->showErrors = $showErrors;
+        $this->floating   = $floating && $type !== 'hidden';
 
         if ($language) {
             $this->name = "{$name}[{$language}]";

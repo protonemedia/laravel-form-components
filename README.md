@@ -75,7 +75,7 @@ If you're using Tailwind, make sure the right plugin ([v1](https://github.com/ta
 </x-form>
 ```
 
-<img src="https://github.com/pascalbaljetmedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450" />
+<img src="https://github.com/pascalbaljetmedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450"  alt="Quick example form"/>
 
 ## Preface
 
@@ -130,7 +130,7 @@ You can also choose to use a `placeholder` instead of a label, and of course you
 <x-form-input type="email" name="current_email" placeholder="Current email address" />
 ```
 
-By default every element shows validation errors but you can hide them if you want.
+By default, every element shows validation errors, but you can hide them if you want.
 
 ```blade
 <x-form-textarea name="description" :show-errors="false" />
@@ -406,7 +406,7 @@ By the default, the errors messages are positioned under the element. To show th
 
 ### Submit button
 
-The label defaults to *Submit* but you can use the slot to provide your own content.
+The label defaults to *Submit*, but you can use the slot to provide your own content.
 
 ```blade
 <x-form-submit>
@@ -414,21 +414,23 @@ The label defaults to *Submit* but you can use the slot to provide your own cont
 </x-form-submit>
 ```
 
-### Bootstrap 4
+### Bootstrap
 
-You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by updating the `framework` setting in the `form-components.php` configuration file.
+You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) or [Bootstrap 5](https://getbootstrap.com/docs/5.0/forms/overview/) by updating the `framework` setting in the `form-components.php` configuration file.
 
 ```php
 return [
-    'framework' => 'bootstrap-4',
+    'framework' => 'bootstrap-5',
 ];
 ```
 
-There is a little bit of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
+There is a little of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.  
 
-#### Input prepend and append
+Bootstrap 5 changes a lot regarding forms. If you migrate from 4 to 5 make sure to read the migration logs about [forms](https://getbootstrap.com/docs/5.0/migration/#forms).
 
-In addition to the Tailwind features, there is also support for [input groups](https://getbootstrap.com/docs/4.1/components/forms/#auto-sizing). Use the `prepend` and `append` slots to provide the contents.
+#### Input group/ prepend and append
+
+In addition to the Tailwind features, with bootstrap 4 there is also support for [input groups](https://getbootstrap.com/docs/4.6/components/forms/). Use the `prepend` and `append` slots to provide the contents.
 
 ```blade
 <x-form-input name="username" label="Username">
@@ -444,9 +446,28 @@ In addition to the Tailwind features, there is also support for [input groups](h
 </x-form-input>
 ```
 
+With bootstrap 5 the [input groups](https://getbootstrap.com/docs/5.0/forms/input-group/) has been simplified. You can add as many items as you would like, in any order you would like. Use `form-input-group-text` component to add text or [checkboxes](https://getbootstrap.com/docs/5.0/forms/input-group/#checkboxes-and-radios). 
+
+```blade
+<x-form-input-group label="Profile" >
+    <x-form-input name="name" placeholder="Name" id="name" />
+    <x-form-input-group-text>@</x-form-input-group-text>
+    <x-form-input name="nickname" placeholder="Nickname" id="nickname" />
+    <x-form-submit />
+</x-form-input-group>
+```
+
+#### Floating labels
+
+As of bootstrap 5 your can add [floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels/). Add `floating` to inputs, selects (excluding `multiple`) and textarea's to use this feature.
+
+```blade
+<x-form-input label="Floating Label" name="float_me" id="float_me" floating />
+```
+
 #### Help text
 
-You can add [block-level help text](https://getbootstrap.com/docs/4.1/components/forms/#help-text) to any element by using the `help` slot.
+You can add [block-level help text](https://getbootstrap.com/docs/4.6/components/forms/#help-text) to any element by using the `help` slot.
 
 ```blade
 <x-form-input name="username" label="Username">
