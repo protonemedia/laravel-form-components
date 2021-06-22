@@ -39,4 +39,15 @@ class Bootstrap5Test extends TestCase
             ->seeElement('#name1', ['placeholder' => ' '])
             ->seeElement('#name2', ['placeholder' => 'John Doe']);
     }
+
+    /** @test */
+    public function it_can_add_custom_input_classes()
+    {
+        $this->registerTestRoute('bootstrap-custom-input');
+
+        $this->visit('/bootstrap-custom-input')
+            ->seeElement('.form-control-color', ['value' => '#000000'])
+            ->seeElementCount('.form-switch', 1)
+            ->seeElement('.form-range', ['type' => 'range']);
+    }
 }

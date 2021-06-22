@@ -54,6 +54,11 @@ return [
             'class' => Components\FormRadio::class,
         ],
 
+        'form-range' => [
+            'view'  => 'form-components::{framework}.form-range',
+            'class' => Components\FormRange::class,
+        ],
+
         'form-select' => [
             'view'  => 'form-components::{framework}.form-select',
             'class' => Components\FormSelect::class,

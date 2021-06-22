@@ -6,7 +6,7 @@
     @endif
 
     <input
-        {!! $attributes->merge(['class' => 'form-control' . ($hasError($name) ? ' is-invalid' : '')]) !!}
+        {!! $attributes->merge(['class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '')]) !!}
 
         type="{{ $type }}"
 
@@ -14,7 +14,7 @@
             wire:model{!! $wireModifier() !!}="{{ $name }}"
         @else
             name="{{ $name }}"
-            value="{{ $value }}"
+            value="{{ $value ?? $type === 'color' ? '#000000' : '' }}"
         @endif
 
         @if($label && !$attributes->get('id'))
