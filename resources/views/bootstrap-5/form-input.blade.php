@@ -14,7 +14,7 @@
             wire:model{!! $wireModifier() !!}="{{ $name }}"
         @else
             name="{{ $name }}"
-            value="{{ $value ?? $type === 'color' ? '#000000' : '' }}"
+            value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
         @endif
 
         @if($label && !$attributes->get('id'))
