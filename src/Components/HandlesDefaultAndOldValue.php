@@ -19,7 +19,7 @@ trait HandlesDefaultAndOldValue
         $inputName = static::convertBracketsToDots($name);
 
         if (!$language) {
-            $default = $this->getBoundValue($bind, $name) ?: $default;
+            $default = $this->getBoundValue($bind, $inputName) ?: $default;
 
             return $this->value = old($inputName, $default);
         }

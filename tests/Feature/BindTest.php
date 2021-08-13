@@ -95,6 +95,21 @@ class BindTest extends TestCase
     }
 
     /** @test */
+    public function it_overrides_the_default_value_when_nested()
+    {
+        $this->registerTestRoute('default-values-with-nested-bound-target');
+
+        $this->visit('/default-values-with-nested-bound-target')
+            ->seeElement('input[name="nested[input]"][value="a"]')
+            ->seeInElement('textarea[name="nested[textarea]"]', 'b')
+            ->seeElement('select[name="nested[select]"] > option[value="c"]:selected')
+            ->seeElement('input[name="nested[checkbox]"]')
+            ->dontSeeElement('input[name="nested[checkbox]"]:checked')
+            ->seeElement('input[name="nested[radio]"]')
+            ->dontSeeElement('input[name="nested[radio]"]:checked');
+    }
+
+    /** @test */
     public function it_can_bind_two_targets_to_the_form()
     {
         $this->registerTestRoute('bind-two-targets');

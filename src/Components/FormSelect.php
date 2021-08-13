@@ -38,11 +38,11 @@ class FormSelect extends Component
         $this->manyRelation = $manyRelation;
 
         if ($this->isNotWired()) {
-            $inputName = Str::before($name, '[]');
+            $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 
             $default = $this->getBoundValue($bind, $inputName) ?: $default;
 
-            $this->selectedKey = old(static::convertBracketsToDots($inputName), $default);
+            $this->selectedKey = old($inputName, $default);
 
             if ($this->selectedKey instanceof Arrayable) {
                 $this->selectedKey = $this->selectedKey->toArray();
