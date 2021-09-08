@@ -13,9 +13,10 @@
         @if($isWired())
             wire:model{!! $wireModifier() !!}="{{ $name }}"
         @else
-            name="{{ $name }}"
             value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
         @endif
+
+        name="{{ $name }}"
 
         @if($label && !$attributes->get('id'))
             id="{{ $id() }}"

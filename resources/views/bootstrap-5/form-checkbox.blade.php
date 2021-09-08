@@ -8,9 +8,9 @@
 
         @if($isWired())
             wire:model{!! $wireModifier() !!}="{{ $name }}"
-        @else
-            name="{{ $name }}"
         @endif
+
+        name="{{ $name }}"
 
         @if($label && !$attributes->get('id'))
             id="{{ $id() }}"
