@@ -6,9 +6,9 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-form-components)
 
-A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app), [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) and [Bootstrap 5 Forms](https://getbootstrap.com/docs/5.1/forms/overview/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
 
-#### ... 👀 There's a Pro version of this package in development: check out [formcomponents.pro](https://formcomponents.pro)!
+Looking for Inertia/Vue.js support? Check out [formcomponents.pro](https://formcomponents.pro)!
 
 ### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
 
@@ -17,7 +17,8 @@ A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://
 * Components for input, textarea, select, multi-select, checkbox and radio elements.
 * Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app).
 * Support for Tailwind v2 with [Tailwind Forms](https://tailwindcss-forms.vercel.app/).
-* Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
+* Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.6/components/forms/).
+* Support for [Bootstrap 5 Forms](https://getbootstrap.com/docs/5.1/forms/overview/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 * Bind a target to a form (or a set of elements) to provide default values (model binding).
 * Support for [Laravel Livewire](https://laravel-livewire.com) v2.
@@ -75,7 +76,7 @@ If you're using Tailwind, make sure the right plugin ([v1](https://github.com/ta
 </x-form>
 ```
 
-<img src="https://github.com/pascalbaljetmedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450"  alt="Quick example form"/>
+<img src="https://github.com/protonemedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450"  alt="Quick example form"/>
 
 ## Preface
 
@@ -424,13 +425,13 @@ return [
 ];
 ```
 
-There is a little of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.  
+There is a little of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
 
-Bootstrap 5 changes a lot regarding forms. If you migrate from 4 to 5 make sure to read the migration logs about [forms](https://getbootstrap.com/docs/5.0/migration/#forms).
+Bootstrap 5 changes a lot regarding forms. If you migrate from 4 to 5, make sure to read the migration logs about [forms](https://getbootstrap.com/docs/5.0/migration/#forms).
 
-#### Input group/ prepend and append
+#### Input group / prepend and append
 
-In addition to the Tailwind features, with bootstrap 4 there is also support for [input groups](https://getbootstrap.com/docs/4.6/components/forms/). Use the `prepend` and `append` slots to provide the contents.
+In addition to the Tailwind features, with Bootstrap 4, there is also support for [input groups](https://getbootstrap.com/docs/4.6/components/forms/). Use the `prepend` and `append` slots to provide the contents.
 
 ```blade
 <x-form-input name="username" label="Username">
@@ -446,7 +447,7 @@ In addition to the Tailwind features, with bootstrap 4 there is also support for
 </x-form-input>
 ```
 
-With bootstrap 5 the [input groups](https://getbootstrap.com/docs/5.0/forms/input-group/) has been simplified. You can add as many items as you would like, in any order you would like. Use `form-input-group-text` component to add text or [checkboxes](https://getbootstrap.com/docs/5.0/forms/input-group/#checkboxes-and-radios). 
+With Bootstrap 5, the [input groups](https://getbootstrap.com/docs/5.0/forms/input-group/) have been simplified. You can add as many items as you would like in any order you would like. Use the `form-input-group-text` component to add text or [checkboxes](https://getbootstrap.com/docs/5.0/forms/input-group/#checkboxes-and-radios).
 
 ```blade
 <x-form-input-group label="Profile" >
@@ -459,7 +460,7 @@ With bootstrap 5 the [input groups](https://getbootstrap.com/docs/5.0/forms/inpu
 
 #### Floating labels
 
-As of bootstrap 5 your can add [floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels/). Add `floating` to inputs, selects (excluding `multiple`) and textarea's to use this feature.
+As of Bootstrap 5, you can add [floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels/) by adding the `floating` attribute to inputs, selects (excluding `multiple`), and textareas.
 
 ```blade
 <x-form-input label="Floating Label" name="float_me" id="float_me" floating />

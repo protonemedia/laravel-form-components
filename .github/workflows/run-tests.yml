@@ -10,7 +10,7 @@ jobs:
             matrix:
                 php: [8.0, 7.4]
                 laravel: [8.*, 7.*]
-                framework: [tailwind, tailwind-2, bootstrap-4]
+                framework: [tailwind, tailwind-2, bootstrap-4, bootstrap-5]
                 dependency-version: [prefer-lowest, prefer-stable]
                 include:
                     -   laravel: 8.*

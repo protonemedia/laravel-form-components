@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.0.0 - 2021-09-08
+
+- Support for Bootstrap 5
+
 ## 2.5.4 - 2020-02-15
 
 - Bugfix for old nested data
