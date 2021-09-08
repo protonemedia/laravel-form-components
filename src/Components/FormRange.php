@@ -23,7 +23,7 @@ class FormRange extends Component
         $bind = null,
         $default = null,
         $language = null,
-        bool $showErrors = true,
+        bool $showErrors = true
     ) {
         $this->name       = $name;
         $this->label      = $label;
