@@ -6,13 +6,15 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-form-components)
 
-A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app), [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) and [Bootstrap 5 Forms](https://getbootstrap.com/docs/5.1/forms/overview/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app), [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) and [Bootstrap 5](https://getbootstrap.com/docs/5.1/forms/overview/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
 
-Looking for Inertia/Vue.js support? Check out [formcomponents.pro](https://formcomponents.pro)!
+## Launcher 🚀
 
-### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
+Hey! We've built a Docker-based deployment tool to launch apps and sites fully containerized. You can find all features and the roadmap on our [website](https://uselauncher.com), and we are on [Twitter](https://twitter.com/uselauncher) as well!
 
 ## Features
+
+### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
 
 * Components for input, textarea, select, multi-select, checkbox and radio elements.
 * Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app).
@@ -28,6 +30,8 @@ Looking for Inertia/Vue.js support? Check out [formcomponents.pro](https://formc
 * [Form method spoofing](https://laravel.com/docs/master/routing#form-method-spoofing).
 * Components classes and Blade views fully customizable.
 * Support for prefixing the components.
+
+Looking for Inertia/Vue.js support? Check out [formcomponents.pro](https://formcomponents.pro)
 
 ## Requirements
 
