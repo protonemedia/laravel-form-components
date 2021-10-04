@@ -31,7 +31,7 @@ Hey! We've built a Docker-based deployment tool to launch apps and sites fully c
 * Components classes and Blade views fully customizable.
 * Support for prefixing the components.
 
-Looking for Inertia/Vue.js support? Check out [formcomponents.pro](https://formcomponents.pro)
+Looking for Inertia/Vue.js support? Check out [Form Components Pro](https://github.com/protonemedia/form-components-pro)
 
 ## Requirements
 
