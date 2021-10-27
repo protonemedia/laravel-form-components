@@ -244,7 +244,7 @@ Normally you would use a `wire:model` attribute to bind a component property wit
     @endwire
 
     <x-form-submit>Save Contact</x-form-submit>
-</form>
+</x-form>
 ```
 
 Additionally, you can pass an optional modifier to the `@wire` directive. This feature was added in v2.4.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
@@ -254,7 +254,7 @@ Additionally, you can pass an optional modifier to the `@wire` directive. This f
     @wire('debounce.500ms')
         <x-form-input name="email" />
     @endwire
-</form>
+</x-form>
 ```
 
 ### Select elements
