@@ -24,6 +24,15 @@ class BindTest extends TestCase
     }
 
     /** @test */
+    public function it_sets_the_right_value_if_the_value_is_zero()
+    {
+        $this->registerTestRoute('bind-target-zero-value');
+
+        $this->visit('/bind-target-zero-value')
+            ->seeElement('input[name="input"][value="0"]');
+    }
+
+    /** @test */
     public function it_overrides_the_bound_target_with_the_old_request_data()
     {
         $this->registerTestRoute('bound-with-validation-errors', function (Request $request) {
