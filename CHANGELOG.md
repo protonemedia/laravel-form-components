@@ -2,6 +2,26 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.0.0 - 2021-09-08
+
+- Support for Bootstrap 5
+
+## 2.5.4 - 2020-02-15
+
+- Bugfix for old nested data
+
+## 2.5.3 - 2020-02-11
+
+- Bugfix for setting radio elements as checked/default
+
+## 2.5.2 - 2020-01-04
+
+- Generate ID by name *and* value (checkbox and radio elements only)
+
+## 2.5.1 - 2020-12-22
+
+- Use the `name` attribute to auto-generate an ID (if not set)
+
 ## 2.5.0 - 2020-12-22
 
 - Support for `BelongsToMany`, `MorphMany`, and `MorphToMany` relationships (select element)

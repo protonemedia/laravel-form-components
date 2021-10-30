@@ -36,7 +36,7 @@ class FormCheckbox extends Component
 
         $inputName = Str::before($name, '[]');
 
-        if ($oldData = old($inputName)) {
+        if ($oldData = old(static::convertBracketsToDots($inputName))) {
             $this->checked = in_array($value, Arr::wrap($oldData));
         }
 

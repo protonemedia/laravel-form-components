@@ -5,7 +5,7 @@ use ProtoneMedia\LaravelFormComponents\Components;
 return [
     'prefix' => '',
 
-    /** tailwind | tailwind-2 | bootstrap-4 */
+    /** tailwind | tailwind-2 | bootstrap-4 | bootstrap-5 */
     'framework' => 'tailwind',
 
     'components' => [
@@ -34,6 +34,16 @@ return [
             'class' => Components\FormInput::class,
         ],
 
+        'form-input-group' => [
+            'view'  => 'form-components::{framework}.form-input-group',
+            'class' => Components\FormInputGroup::class,
+        ],
+
+        'form-input-group-text' => [
+            'view'  => 'form-components::{framework}.form-input-group-text',
+            'class' => Components\FormInputGroupText::class,
+        ],
+
         'form-label' => [
             'view'  => 'form-components::{framework}.form-label',
             'class' => Components\FormLabel::class,
@@ -42,6 +52,11 @@ return [
         'form-radio' => [
             'view'  => 'form-components::{framework}.form-radio',
             'class' => Components\FormRadio::class,
+        ],
+
+        'form-range' => [
+            'view'  => 'form-components::{framework}.form-range',
+            'class' => Components\FormRange::class,
         ],
 
         'form-select' => [

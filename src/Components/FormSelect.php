@@ -16,6 +16,7 @@ class FormSelect extends Component
     public $options;
     public $selectedKey;
     public bool $multiple;
+    public bool $floating;
 
     /**
      * Create a new component instance.
@@ -30,7 +31,8 @@ class FormSelect extends Component
         $default = null,
         bool $multiple = false,
         bool $showErrors = true,
-        bool $manyRelation = false
+        bool $manyRelation = false,
+        bool $floating = false
     ) {
         $this->name         = $name;
         $this->label        = $label;
@@ -42,7 +44,7 @@ class FormSelect extends Component
 
             $default = $this->getBoundValue($bind, $inputName) ?: $default;
 
-            $this->selectedKey = old($inputName, $default);
+            $this->selectedKey = old(static::convertBracketsToDots($inputName), $default);
 
             if ($this->selectedKey instanceof Arrayable) {
                 $this->selectedKey = $this->selectedKey->toArray();
@@ -51,6 +53,7 @@ class FormSelect extends Component
 
         $this->multiple   = $multiple;
         $this->showErrors = $showErrors;
+        $this->floating   = $floating && !$multiple;
     }
 
     public function isSelected($key): bool

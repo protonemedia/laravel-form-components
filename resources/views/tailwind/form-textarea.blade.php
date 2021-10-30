@@ -5,9 +5,9 @@
         <textarea
             @if($isWired())
                 wire:model{!! $wireModifier() !!}="{{ $name }}"
-            @else
-                name="{{ $name }}"
             @endif
+
+            name="{{ $name }}"
 
             {!! $attributes->merge(['class' => 'form-textarea block w-full ' . ($label ? 'mt-1' : '')]) !!}
         >@unless($isWired()){!! $value !!}@endunless</textarea>

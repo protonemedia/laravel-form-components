@@ -1,6 +1,9 @@
-<div class="form-check">
-    <input {!! $attributes->merge(['class' => 'form-check-input ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
-        type="checkbox"
+<div class="form-check @if(null !== $attributes->get('inline')) form-check-inline @endif">
+    <input
+        {!! $attributes->merge(['class' => 'form-check-input' . ($hasError($name) ? ' is-invalid' : '')]) !!}
+
+        type="radio"
+
         value="{{ $value }}"
 
         @if($isWired())

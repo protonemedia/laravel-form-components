@@ -16,7 +16,7 @@ class FormErrors extends Component
      */
     public function __construct(string $name, string $bag = 'default')
     {
-        $this->name = str_replace(['[', ']'], ['.', ''], Str::before($name, '[]'));
+        $this->name = static::convertBracketsToDots(Str::before($name, '[]'));
 
         $this->bag = $bag;
     }

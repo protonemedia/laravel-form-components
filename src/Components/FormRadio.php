@@ -25,14 +25,20 @@ class FormRadio extends Component
         $this->value      = $value;
         $this->showErrors = $showErrors;
 
-        if (old($name)) {
-            $this->checked = old($name) == $value;
+        $inputName = static::convertBracketsToDots($name);
+
+        if (old($inputName)) {
+            $this->checked = old($inputName) == $value;
         }
 
         if (!session()->hasOldInput() && $this->isNotWired()) {
             $boundValue = $this->getBoundValue($bind, $name);
 
-            $this->checked = (is_null($boundValue) ? $default : $boundValue) == $this->value;
+            if (!is_null($boundValue)) {
+                $this->checked = $boundValue == $this->value;
+            } else {
+                $this->checked = $default;
+            }
         }
     }
 
