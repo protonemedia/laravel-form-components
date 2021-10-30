@@ -27,7 +27,7 @@ class FormRadio extends Component
 
         $inputName = static::convertBracketsToDots($name);
 
-        if (old($inputName)) {
+        if (old($inputName) !== null) {
             $this->checked = old($inputName) == $value;
         }
 
