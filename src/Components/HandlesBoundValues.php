@@ -55,7 +55,7 @@ trait HandlesBoundValues
         $bind = $bind ?: $this->getBoundTarget();
 
         if ($this->manyRelation) {
-            return  $this->getAttachedKeysFromRelation($bind, $name);
+            return $this->getAttachedKeysFromRelation($bind, $name);
         }
 
         $boundValue = data_get($bind, $name);
