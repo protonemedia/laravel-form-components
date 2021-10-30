@@ -18,6 +18,16 @@ class ChekboxTest extends TestCase
     }
 
     /** @test */
+    public function it_supports_bound_collections()
+    {
+        $this->registerTestRoute('checkbox-collection');
+
+        $this->visit('/checkbox-collection')
+            ->seeElement('input[value="read"]:checked')
+            ->seeElement('input[value="write"]:not(:checked)');
+    }
+
+    /** @test */
     public function it_does_check_the_right_input_element_after_a_validation_error()
     {
         $this->registerTestRoute('checkbox-validation', function (Request $request) {

@@ -2,6 +2,7 @@
 
 namespace ProtoneMedia\LaravelFormComponents\Components;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -41,6 +42,10 @@ class FormCheckbox extends Component
 
         if (!session()->hasOldInput() && $this->isNotWired()) {
             $boundValue = $this->getBoundValue($bind, $inputName);
+
+            if ($boundValue instanceof Arrayable) {
+                $boundValue = $boundValue->toArray();
+            }
 
             if (is_array($boundValue)) {
                 $this->checked = in_array($value, $boundValue);
