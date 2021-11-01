@@ -159,6 +159,38 @@ Instead of setting a default value, you can also pass in a target, like an Eloqu
 
 In the example above, where `$video` is an Eloquent model, the default value will be `$video->description`.
 
+#### Date Casting
+
+If you use Eloquent's [Date Casting](https://laravel.com/docs/8.x/eloquent-mutators#date-casting) feature, you can use the date attributes in your forms by setting the `use_eloquent_date_casting` configuration key to `true`. For compatibility reasons, this is disabled by default.
+
+```php
+return [
+    'use_eloquent_date_casting' => true,
+];
+```
+
+You can either use the `dates` property or the `casts` property in your Eloquent model to specify date attributes:
+
+```php
+class ActivityModel extends Model
+{
+    public $dates = ['finished_at'];
+
+    public $casts = [
+        'started_at'   => 'date',
+        'failed_at'    => 'datetime',
+        'completed_at' => 'date:d-m-Y',
+        'skipped_at'   => 'datetime:Y-m-d H:i',
+    ];
+}
+```
+
+```blade
+<x-form-input name="completed_at" :bind="$activity" />
+```
+
+In the example above, the default value will be formatted like `31-10-2021`.
+
 #### Binding a target to multiple elements
 
 You can also bind a target by using the `@bind` directive. This will bind the target to all elements until the `@endbind` directive.
