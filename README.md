@@ -318,7 +318,9 @@ If you want a select element where multiple options can be selected, add the `mu
 <x-form-select name="country_code[]" :options="$countries" multiple :default="['be', 'nl']" />
 ```
 
-You may add a `placeholder` attribute to the select element. This will prepend a disabled option. This feature was added in v3.2.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
+You may add a `placeholder` attribute to the select element. This will prepend a disabled option.
+
+This feature was added in v3.2.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
 
 ```blade
 <x-form-select name="country_code" placeholder="Choose..." />

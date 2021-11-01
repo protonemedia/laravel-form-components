@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.2.0 - 2021-11-01
+
+- Support for `select` placeholder
+
 ## 3.1.0 - 2021-11-01
 
 - Support for Date Casting
