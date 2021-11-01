@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Build Status](https://img.shields.io/travis/protonemedia/laravel-form-components/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-form-components)
-[![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-form-components.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-form-components)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-form-components)
 
