@@ -19,7 +19,7 @@ class DateTimeCastTest extends TestCase
 
         ActivityModel::unguard();
 
-        View::share('model', new ActivityModel([
+        View::share('model', $model = new ActivityModel([
             'date_a' => now(),
             'date_b' => now(),
             'date_c' => now(),
@@ -28,6 +28,18 @@ class DateTimeCastTest extends TestCase
             'date_f' => now(),
             'date_g' => now(),
         ]));
+
+        if (version_compare(app()->version(), '8.53', '>=')) {
+            $model->mergeCasts([
+                'date_f' => 'immutable_date:Y',
+                'date_g' => 'immutable_datetime:Y-m',
+            ]);
+        } else {
+            $model->mergeCasts([
+                'date_f' => 'date:Y',
+                'date_g' => 'datetime:Y-m',
+            ]);
+        }
 
         $this->visit('/date-time-casts')
             ->seeElement('input[name="date_a"][value="2021-11-01T12:00:00.000000Z"]')
