@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.1.0 - 2021-11-01
+
+- Support for Date Casting
+- Support for checkboxes where the bound value is Arrayable
+- Bugfix for default `0` values
+- Bootstrap 4 validation structure fix
+
+## 3.0.1 - 2021-09-08
+
+- Added name attribute when element is wired
+
 ## 3.0.0 - 2021-09-08
 
 - Support for Bootstrap 5
