@@ -17,6 +17,7 @@ class FormSelect extends Component
     public $selectedKey;
     public bool $multiple;
     public bool $floating;
+    public string $placeholder;
 
     /**
      * Create a new component instance.
@@ -32,12 +33,14 @@ class FormSelect extends Component
         bool $multiple = false,
         bool $showErrors = true,
         bool $manyRelation = false,
-        bool $floating = false
+        bool $floating = false,
+        string $placeholder = ''
     ) {
         $this->name         = $name;
         $this->label        = $label;
         $this->options      = $options;
         $this->manyRelation = $manyRelation;
+        $this->placeholder  = $placeholder;
 
         if ($this->isNotWired()) {
             $inputName = Str::before($name, '[]');
@@ -63,5 +66,14 @@ class FormSelect extends Component
         }
 
         return in_array($key, Arr::wrap($this->selectedKey));
+    }
+
+    public function nothingSelected(): bool
+    {
+        if ($this->isWired()) {
+            return false;
+        }
+
+        return is_array($this->selectedKey) ? empty($this->selectedKey) : is_null($this->selectedKey);
     }
 }

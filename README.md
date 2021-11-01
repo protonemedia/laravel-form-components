@@ -318,6 +318,23 @@ If you want a select element where multiple options can be selected, add the `mu
 <x-form-select name="country_code[]" :options="$countries" multiple :default="['be', 'nl']" />
 ```
 
+You may add a `placeholder` attribute to the select element. This will prepend a disabled option.
+
+This feature was added in v3.2.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
+
+```blade
+<x-form-select name="country_code" placeholder="Choose..." />
+```
+
+Rendered HTML:
+
+```html
+<select>
+    <option value="" disabled>Choose...</option>
+    <!-- other options... -->
+</select>
+```
+
 #### Using Eloquent relationships
 
 This package has built-in support for `BelongsToMany`, `MorphMany`, and `MorphToMany` relationships. To utilize this feature, you must add both the `multiple` and `many-relation` attribute to the select element.

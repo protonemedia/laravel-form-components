@@ -12,11 +12,22 @@
             multiple
         @endif
 
+        @if($placeholder)
+            placeholder="{{ $placeholder }}"
+        @endif
+
         @if($label && !$attributes->get('id'))
             id="{{ $id() }}"
         @endif
 
         {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}>
+
+        @if($placeholder)
+            <option value="" disabled @if($nothingSelected()) selected="selected" @endif>
+                {{ $placeholder }}
+            </option>
+        @endif
+
         @forelse($options as $key => $option)
             <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
                 {{ $option }}
