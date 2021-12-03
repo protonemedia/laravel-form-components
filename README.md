@@ -101,7 +101,7 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
 
 ## Configuration
 
-You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Use the `artisan vendor:publish` command to publish the configuration file.
+You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Either create this file yourself or use the `artisan vendor:publish` command to publish "Provider: ProtoneMedia\LaravelFormComponents\Support\ServiceProvider". Note that this will publish the configuration files aswell as the views.
 
 ```php
 return [
