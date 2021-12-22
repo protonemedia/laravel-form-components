@@ -16,9 +16,10 @@
             @if($isWired())
                 wire:model{!! $wireModifier() !!}="{{ $name }}"
             @else
-                name="{{ $name }}"
                 value="{{ $value }}"
             @endif
+
+            name="{{ $name }}"
 
             @if($label && !$attributes->get('id'))
                 id="{{ $id() }}"
@@ -32,11 +33,12 @@
                 </div>
             </div>
         @endisset
+
+        @if($hasErrorAndShow($name))
+            <x-form-errors :name="$name" />
+        @endif
     </div>
 
     {!! $help ?? null !!}
 
-    @if($hasErrorAndShow($name))
-        <x-form-errors :name="$name" />
-    @endif
 </div>

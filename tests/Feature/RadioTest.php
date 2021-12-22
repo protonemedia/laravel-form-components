@@ -42,4 +42,20 @@ class RadioTest extends TestCase
             ->seeElement('input[value="a"]:not(:checked)')
             ->seeElement('input[value="b"]:checked');
     }
+
+    /** @test */
+    public function it_does_check_the_right_input_element_after_a_validation_error_of_another_field()
+    {
+        $this->registerTestRoute('radio-with-zero-value', function (Request $request) {
+            $data = $request->validate([
+                'input' => 'required',
+            ]);
+        });
+
+        $this->visit('/radio-with-zero-value')
+            ->select('0', 'radio')
+            ->press('Submit')
+            ->seeElement('input[value="0"]:checked')
+            ->seeElement('input[value="1"]:not(:checked)');
+    }
 }

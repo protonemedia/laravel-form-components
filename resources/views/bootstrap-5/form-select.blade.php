@@ -1,5 +1,8 @@
-<div class="form-group">
-    <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
+@if($floating) <div class="form-floating"> @endif
+
+    @if(!$floating)
+        <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
+    @endif
 
     <select
         @if($isWired())
@@ -20,7 +23,8 @@
             id="{{ $id() }}"
         @endif
 
-        {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}>
+        {!! $attributes->merge(['class' => 'form-select' . ($hasError($name) ? ' is-invalid' : '')]) !!}
+    >
 
         @if($placeholder)
             <option value="" disabled @if($nothingSelected()) selected="selected" @endif>
@@ -37,9 +41,14 @@
         @endforelse
     </select>
 
-    {!! $help ?? null !!}
-
-    @if($hasErrorAndShow($name))
-        <x-form-errors :name="$name" />
+    @if($floating)
+        <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
     @endif
-</div>
+
+@if($floating) </div> @endif
+
+{!! $help ?? null !!}
+
+@if($hasErrorAndShow($name))
+    <x-form-errors :name="$name" />
+@endif

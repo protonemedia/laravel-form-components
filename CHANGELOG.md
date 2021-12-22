@@ -2,6 +2,30 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.3.0 - 2021-12-19
+
+- Support for PHP 8.1
+- Dropped support for Laravel 7
+
+## 3.2.0 - 2021-11-01
+
+- Support for `select` placeholder
+
+## 3.1.0 - 2021-11-01
+
+- Support for Date Casting
+- Support for checkboxes where the bound value is Arrayable
+- Bugfix for default `0` values
+- Bootstrap 4 validation structure fix
+
+## 3.0.1 - 2021-09-08
+
+- Added name attribute when element is wired
+
+## 3.0.0 - 2021-09-08
+
+- Support for Bootstrap 5
+
 ## 2.5.4 - 2020-02-15
 
 - Bugfix for old nested data

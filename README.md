@@ -2,22 +2,24 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Build Status](https://img.shields.io/travis/protonemedia/laravel-form-components/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-form-components)
-[![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-form-components.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-form-components)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-form-components)
 
-A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app) and [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app), [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) and [Bootstrap 5](https://getbootstrap.com/docs/5.1/forms/overview/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
 
-#### ... 👀 There's a Pro version of this package in development: check out [formcomponents.pro](https://formcomponents.pro)!
+## Launcher 🚀
 
-### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
+Hey! We've built a Docker-based deployment tool to launch apps and sites fully containerized. You can find all features and the roadmap on our [website](https://uselauncher.com), and we are on [Twitter](https://twitter.com/uselauncher) as well!
 
 ## Features
+
+### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
 
 * Components for input, textarea, select, multi-select, checkbox and radio elements.
 * Support for Tailwind v1 with [Tailwind CSS Custom Forms](https://tailwindcss-custom-forms.netlify.app).
 * Support for Tailwind v2 with [Tailwind Forms](https://tailwindcss-forms.vercel.app/).
-* Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.0/components/forms/).
+* Support for [Bootstrap 4 Forms](https://getbootstrap.com/docs/4.6/components/forms/).
+* Support for [Bootstrap 5 Forms](https://getbootstrap.com/docs/5.1/forms/overview/).
 * Component logic independent from Blade views, the Tailwind and Bootstrap views use the same logic.
 * Bind a target to a form (or a set of elements) to provide default values (model binding).
 * Support for [Laravel Livewire](https://laravel-livewire.com) v2.
@@ -28,9 +30,12 @@ A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://
 * Components classes and Blade views fully customizable.
 * Support for prefixing the components.
 
+Looking for Inertia/Vue.js support? Check out [Form Components Pro](https://github.com/protonemedia/form-components-pro)
+
 ## Requirements
 
-* PHP 7.4 + Laravel 7.0 and higher
+* PHP 7.4 or higher
+* Laravel 8.0
 
 ## Support
 
@@ -75,7 +80,7 @@ If you're using Tailwind, make sure the right plugin ([v1](https://github.com/ta
 </x-form>
 ```
 
-<img src="https://github.com/pascalbaljetmedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450" />
+<img src="https://github.com/protonemedia/laravel-form-components/blob/master/quick-example-form.png?raw=true" width="450"  alt="Quick example form"/>
 
 ## Preface
 
@@ -97,7 +102,7 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
 
 ## Configuration
 
-You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Use the `artisan vendor:publish` command to publish the configuration file.
+You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Check out the [customization section](#customize-the-blade-views) on publishing the configuration and view files.
 
 ```php
 return [
@@ -130,7 +135,7 @@ You can also choose to use a `placeholder` instead of a label, and of course you
 <x-form-input type="email" name="current_email" placeholder="Current email address" />
 ```
 
-By default every element shows validation errors but you can hide them if you want.
+By default, every element shows validation errors, but you can hide them if you want.
 
 ```blade
 <x-form-textarea name="description" :show-errors="false" />
@@ -153,6 +158,38 @@ Instead of setting a default value, you can also pass in a target, like an Eloqu
 ```
 
 In the example above, where `$video` is an Eloquent model, the default value will be `$video->description`.
+
+#### Date Casting
+
+If you use Eloquent's [Date Casting](https://laravel.com/docs/8.x/eloquent-mutators#date-casting) feature, you can use the date attributes in your forms by setting the `use_eloquent_date_casting` configuration key to `true`. For compatibility reasons, this is disabled by default.
+
+```php
+return [
+    'use_eloquent_date_casting' => true,
+];
+```
+
+You can either use the `dates` property or the `casts` property in your Eloquent model to specify date attributes:
+
+```php
+class ActivityModel extends Model
+{
+    public $dates = ['finished_at'];
+
+    public $casts = [
+        'started_at'   => 'date',
+        'failed_at'    => 'datetime',
+        'completed_at' => 'date:d-m-Y',
+        'skipped_at'   => 'datetime:Y-m-d H:i',
+    ];
+}
+```
+
+```blade
+<x-form-input name="completed_at" :bind="$activity" />
+```
+
+In the example above, the default value will be formatted like `31-10-2021`.
 
 #### Binding a target to multiple elements
 
@@ -239,7 +276,7 @@ Normally you would use a `wire:model` attribute to bind a component property wit
     @endwire
 
     <x-form-submit>Save Contact</x-form-submit>
-</form>
+</x-form>
 ```
 
 Additionally, you can pass an optional modifier to the `@wire` directive. This feature was added in v2.4.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
@@ -249,7 +286,7 @@ Additionally, you can pass an optional modifier to the `@wire` directive. This f
     @wire('debounce.500ms')
         <x-form-input name="email" />
     @endwire
-</form>
+</x-form>
 ```
 
 ### Select elements
@@ -280,6 +317,23 @@ If you want a select element where multiple options can be selected, add the `mu
 
 ```blade
 <x-form-select name="country_code[]" :options="$countries" multiple :default="['be', 'nl']" />
+```
+
+You may add a `placeholder` attribute to the select element. This will prepend a disabled option.
+
+This feature was added in v3.2.0. If you're upgrading from a previous version *and* you published the Blade views, you should republish them *or* update them manually.
+
+```blade
+<x-form-select name="country_code" placeholder="Choose..." />
+```
+
+Rendered HTML:
+
+```html
+<select>
+    <option value="" disabled>Choose...</option>
+    <!-- other options... -->
+</select>
 ```
 
 #### Using Eloquent relationships
@@ -406,7 +460,7 @@ By the default, the errors messages are positioned under the element. To show th
 
 ### Submit button
 
-The label defaults to *Submit* but you can use the slot to provide your own content.
+The label defaults to *Submit*, but you can use the slot to provide your own content.
 
 ```blade
 <x-form-submit>
@@ -414,21 +468,23 @@ The label defaults to *Submit* but you can use the slot to provide your own cont
 </x-form-submit>
 ```
 
-### Bootstrap 4
+### Bootstrap
 
-You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) by updating the `framework` setting in the `form-components.php` configuration file.
+You can switch to [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) or [Bootstrap 5](https://getbootstrap.com/docs/5.0/forms/overview/) by updating the `framework` setting in the `form-components.php` configuration file.
 
 ```php
 return [
-    'framework' => 'bootstrap-4',
+    'framework' => 'bootstrap-5',
 ];
 ```
 
-There is a little bit of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
+There is a little of styling added to the `form.blade.php` view to add support for inline form groups. If you want to change it or remove it, [publish the assets](#customize-the-blade-views) and update the view file.
 
-#### Input prepend and append
+Bootstrap 5 changes a lot regarding forms. If you migrate from 4 to 5, make sure to read the migration logs about [forms](https://getbootstrap.com/docs/5.0/migration/#forms).
 
-In addition to the Tailwind features, there is also support for [input groups](https://getbootstrap.com/docs/4.1/components/forms/#auto-sizing). Use the `prepend` and `append` slots to provide the contents.
+#### Input group / prepend and append
+
+In addition to the Tailwind features, with Bootstrap 4, there is also support for [input groups](https://getbootstrap.com/docs/4.6/components/forms/). Use the `prepend` and `append` slots to provide the contents.
 
 ```blade
 <x-form-input name="username" label="Username">
@@ -444,9 +500,28 @@ In addition to the Tailwind features, there is also support for [input groups](h
 </x-form-input>
 ```
 
+With Bootstrap 5, the [input groups](https://getbootstrap.com/docs/5.0/forms/input-group/) have been simplified. You can add as many items as you would like in any order you would like. Use the `form-input-group-text` component to add text or [checkboxes](https://getbootstrap.com/docs/5.0/forms/input-group/#checkboxes-and-radios).
+
+```blade
+<x-form-input-group label="Profile" >
+    <x-form-input name="name" placeholder="Name" id="name" />
+    <x-form-input-group-text>@</x-form-input-group-text>
+    <x-form-input name="nickname" placeholder="Nickname" id="nickname" />
+    <x-form-submit />
+</x-form-input-group>
+```
+
+#### Floating labels
+
+As of Bootstrap 5, you can add [floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels/) by adding the `floating` attribute to inputs, selects (excluding `multiple`), and textareas.
+
+```blade
+<x-form-input label="Floating Label" name="float_me" id="float_me" floating />
+```
+
 #### Help text
 
-You can add [block-level help text](https://getbootstrap.com/docs/4.1/components/forms/#help-text) to any element by using the `help` slot.
+You can add [block-level help text](https://getbootstrap.com/docs/4.6/components/forms/#help-text) to any element by using the `help` slot.
 
 ```blade
 <x-form-input name="username" label="Username">
