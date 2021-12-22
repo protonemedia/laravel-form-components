@@ -34,7 +34,8 @@ Looking for Inertia/Vue.js support? Check out [Form Components Pro](https://gith
 
 ## Requirements
 
-* PHP 7.4 + Laravel 7.0 and higher
+* PHP 7.4 or higher
+* Laravel 8.0
 
 ## Support
 
