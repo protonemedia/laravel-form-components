@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.3.1 - 2021-12-22
+
+- Ensure nested properties uses dot notation
+
 ## 3.3.0 - 2021-12-19
 
 - Support for PHP 8.1
