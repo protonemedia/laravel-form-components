@@ -45,7 +45,9 @@ class FormSelect extends Component
         if ($this->isNotWired()) {
             $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 
-            $default = $this->getBoundValue($bind, $inputName) ?: $default;
+            if (empty($default)) {
+                $default = $this->getBoundValue($bind, $inputName);
+            }
 
             $this->selectedKey = old($inputName, $default);
 
