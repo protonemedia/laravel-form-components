@@ -102,7 +102,7 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
 
 ## Configuration
 
-You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Check out the [customization section](#customize-the-blade-views) on publishing the configuration and view files.
+You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Check out the [customization section](#customize-the-blade-views) on publishing the configuration and view files. If you're using the [Livewire Stack with Laravel Jetstream](https://jetstream.laravel.com/2.x/stacks/livewire.html), you probably want to set the `framework` configuration key to `tailwind-forms-simple`.
 
 ```php
 return [
