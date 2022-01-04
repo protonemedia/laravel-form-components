@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.4.0 - 2022-01-04
+
+- Added `tailwind-forms-simple` views
+
 ## 3.3.1 - 2021-12-22
 
 - Ensure nested properties uses dot notation
