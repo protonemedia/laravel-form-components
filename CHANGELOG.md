@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.5.1 - 2022-01-05
+
+- Fix for falsy default select values
+- Fix for overriding the `default_wire` configuration with a `@wire` directive
+
 ## 3.5.0 - 2022-01-05
 
 - Added `default_wire` configuration
