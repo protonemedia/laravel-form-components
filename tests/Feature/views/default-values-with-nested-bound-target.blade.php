@@ -14,7 +14,7 @@
     @bind($target)
         <x-form-input default="d" name="nested[input]" />
         <x-form-textarea default="e" name="nested[textarea]" />
-        <x-form-select default="f" name="nested[select]" :options="['' => '', 'c' => 'c']" />
+        <x-form-select default="f" name="nested[select]" :options="['' => '', 'c' => 'c', 'f' => 'f']" />
         <x-form-checkbox :default="true" name="nested[checkbox]" />
 
         <x-form-group name="radio">
