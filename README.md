@@ -84,9 +84,11 @@ If you're using Tailwind, make sure the right plugin ([v1](https://github.com/ta
 
 ## Preface
 
-Generating HTML in PHP is always quite opinionated and limited. Blade Components are great because additional attributes are passed down to the element. That's why we prefer writing forms using components instead of using PHP builders. This way, you don't have to write extensions or custom code for any attribute you pass in. Let's take a look at this `x-form` example.
+At first sight, generating HTML forms with PHP looks great. PHP's power can make it less repetitive, and it's nice to resolve input values and validation states right from your PHP code. Still, it gets harder to keep your PHP code clean and neat whenever your forms get more complex. Often you end up with lots of custom code, writing extensions, and overriding defaults, just for the sake of adding some small thing to your form.
 
-The `action` attribute is optional, but you can pass a hard-coded, primitive value to the component using a simple HTML attribute. PHP expressions and variables can be passed to the component as well via attributes that use the `:` character as a prefix. Do you need Alpine.js or VueJS directives? No problem!
+After years of trying all sorts of form builders, it feels like just writing most of the form in HTML is the most versatile solution. You can add helper texts, icons, tooltips, popovers, custom sections, and JavaScript integrations however and wherever you like. The power of [Laravel Blade Components](https://laravel.com/docs/8.x/blade) allows us to add all kinds of features without bringing the whole form-building process into PHP.
+
+Let's take a look at this `x-form` example. The `action` attribute is optional, but you can pass a hard-coded, primitive value to the component using a simple HTML attribute. Likewise, PHP expressions and variables can be passed to attributes using the `:` prefix. Do you need Alpine.js or VueJS directives? No problem!
 
 ```blade
 <x-form action="/api/user">
