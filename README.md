@@ -291,7 +291,7 @@ Additionally, you can pass an optional modifier to the `@wire` directive. This f
 </x-form>
 ```
 
-It's also possible to use the `wire:model` attribute by default. You may set the `default_wire` configuration setting to `true` or a modifier like `debounce.500ms`. This way, you don't need the `@wire` and `@endwire` directives in your views. You may still override the default setting by manually adding the `wire:model` attribute to a form element.
+It's also possible to use the `wire:model` attribute by default. You may set the `default_wire` configuration setting to `true` or a modifier like `debounce.500ms`. This way, you don't need the `@wire` and `@endwire` directives in your views. You may still override the default setting by using the `@wire` directive, or by manually adding the `wire:model` attribute to a form element.
 
 ### Select elements
 
