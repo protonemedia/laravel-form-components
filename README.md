@@ -84,9 +84,11 @@ If you're using Tailwind, make sure the right plugin ([v1](https://github.com/ta
 
 ## Preface
 
-Generating HTML in PHP is always quite opinionated and limited. Blade Components are great because additional attributes are passed down to the element. That's why we prefer writing forms using components instead of using PHP builders. This way, you don't have to write extensions or custom code for any attribute you pass in. Let's take a look at this `x-form` example.
+At first sight, generating HTML forms with PHP looks great. PHP's power can make it less repetitive, and it's nice to resolve input values and validation states right from your PHP code. Still, it gets harder to keep your PHP code clean and neat whenever your forms get more complex. Often you end up with lots of custom code, writing extensions, and overriding defaults, just for the sake of adding some small thing to your form.
 
-The `action` attribute is optional, but you can pass a hard-coded, primitive value to the component using a simple HTML attribute. PHP expressions and variables can be passed to the component as well via attributes that use the `:` character as a prefix. Do you need Alpine.js or VueJS directives? No problem!
+After years of trying all sorts of form builders, it feels like just writing most of the form in HTML is the most versatile solution. You can add helper texts, icons, tooltips, popovers, custom sections, and JavaScript integrations however and wherever you like. The power of [Laravel Blade Components](https://laravel.com/docs/8.x/blade) allows us to add all kinds of features without bringing the whole form-building process into PHP.
+
+Let's take a look at this `x-form` example. The `action` attribute is optional, but you can pass a hard-coded, primitive value to the component using a simple HTML attribute. Likewise, PHP expressions and variables can be passed to attributes using the `:` prefix. Do you need Alpine.js or VueJS directives? No problem!
 
 ```blade
 <x-form action="/api/user">
@@ -102,7 +104,7 @@ The `action` attribute is optional, but you can pass a hard-coded, primitive val
 
 ## Configuration
 
-You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Check out the [customization section](#customize-the-blade-views) on publishing the configuration and view files.
+You can switch frameworks by updating the `framework` setting in the `form-components.php` configuration file. Check out the [customization section](#customize-the-blade-views) on publishing the configuration and view files. If you're using the [Livewire Stack with Laravel Jetstream](https://jetstream.laravel.com/2.x/stacks/livewire.html), you probably want to set the `framework` configuration key to `tailwind-forms-simple`.
 
 ```php
 return [
@@ -266,7 +268,7 @@ class ContactForm extends Component
 }
 ```
 
-Normally you would use a `wire:model` attribute to bind a component property with a form element. By using the `@wire` directive, this package will automatically use the `wire:model` attribute instead of the `name` attribute.
+Normally you would use a `wire:model` attribute to bind a component property with a form element. By using the `@wire` directive, this package will automatically add the `wire:model` attribute.
 
 ```blade
 <x-form wire:submit.prevent="submit">
@@ -288,6 +290,8 @@ Additionally, you can pass an optional modifier to the `@wire` directive. This f
     @endwire
 </x-form>
 ```
+
+It's also possible to use the `wire:model` attribute by default. You may set the `default_wire` configuration setting to `true` or a modifier like `debounce.500ms`. This way, you don't need the `@wire` and `@endwire` directives in your views. You may still override the default setting by using the `@wire` directive, or by manually adding the `wire:model` attribute to a form element.
 
 ### Select elements
 

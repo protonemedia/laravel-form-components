@@ -17,6 +17,11 @@ class FormDataBinder
     private $wire = false;
 
     /**
+     * Whether the default wire has been verified once.
+     */
+    private $loadDefaultWire = true;
+
+    /**
      * Bind a target to the current instance
      *
      * @param mixed $target
@@ -54,6 +59,16 @@ class FormDataBinder
      */
     public function isWired(): bool
     {
+        if ($this->loadDefaultWire) {
+            $this->loadDefaultWire = false;
+
+            $defaultWire = config('form-components.default_wire');
+
+            if ($defaultWire !== false) {
+                $this->wire = $defaultWire;
+            }
+        }
+
         return $this->wire !== false;
     }
 
@@ -70,12 +85,16 @@ class FormDataBinder
     /**
      * Enable Livewire binding with an optional modifier.
      *
-     * @param string $modifier
+     * @param bool|string $modifier
      * @return void
      */
     public function wire($modifier = null): void
     {
-        $this->wire = $modifier ?: null;
+        $this->wire = $modifier !== false
+            ? ($modifier ?: null)
+            : false;
+
+        $this->loadDefaultWire = false;
     }
 
     /**
@@ -86,5 +105,7 @@ class FormDataBinder
     public function endWire(): void
     {
         $this->wire = false;
+
+        $this->loadDefaultWire = true;
     }
 }

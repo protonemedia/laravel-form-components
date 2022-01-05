@@ -36,6 +36,10 @@ abstract class Component extends BaseComponent
      */
     public function isWired(): bool
     {
+        if ($this->attributes && count($this->attributes->whereStartsWith('wire:model')->getIterator())) {
+            return false;
+        }
+
         return app(FormDataBinder::class)->isWired();
     }
 

@@ -41,6 +41,38 @@ class FormComponentWithModifier extends FormComponent
     }
 }
 
+class FormComponentDefaultWired extends FormComponent
+{
+    public function render()
+    {
+        return view('livewire-form-default-wired');
+    }
+}
+
+class FormComponentDefaultWiredModifier extends FormComponent
+{
+    public function render()
+    {
+        return view('livewire-form-default-wired-lazy');
+    }
+}
+
+class FormComponentDefaultWiredWithOverride extends FormComponent
+{
+    public function render()
+    {
+        return view('livewire-form-default-wired-with-override');
+    }
+}
+
+class FormComponentDefaultWiredWithDirectiveOverride extends FormComponent
+{
+    public function render()
+    {
+        return view('livewire-form-default-wired-with-directive-override');
+    }
+}
+
 class LivewireTest extends TestCase
 {
     /** @test */
@@ -95,5 +127,65 @@ class LivewireTest extends TestCase
             ->assertSeeHtml('The multi select field is required')
             ->assertSeeHtml('The checkbox must be accepted')
             ->assertSeeHtml('The radio must be accepted');
+    }
+
+    /** @test */
+    public function it_can_wire_by_default()
+    {
+        config(['form-components.default_wire' => true]);
+
+        $component = Livewire::test(FormComponentDefaultWired::class);
+
+        $component->assertSeeHtml('wire:model="input"')
+            ->assertSeeHtml('wire:model="textarea"')
+            ->assertSeeHtml('wire:model="select"')
+            ->assertSeeHtml('wire:model="multi_select"')
+            ->assertSeeHtml('wire:model="checkbox"')
+            ->assertSeeHtml('wire:model="radio"');
+    }
+
+    /** @test */
+    public function it_can_wire_by_default_with_a_modifier()
+    {
+        config(['form-components.default_wire' => 'debounce.1000ms']);
+
+        $component = Livewire::test(FormComponentDefaultWiredModifier::class);
+
+        $component->assertSeeHtml('wire:model.debounce.1000ms="input"')
+            ->assertSeeHtml('wire:model.debounce.1000ms="textarea"')
+            ->assertSeeHtml('wire:model.debounce.1000ms="select"')
+            ->assertSeeHtml('wire:model.debounce.1000ms="multi_select"')
+            ->assertSeeHtml('wire:model.debounce.1000ms="checkbox"')
+            ->assertSeeHtml('wire:model.debounce.1000ms="radio"');
+    }
+
+    /** @test */
+    public function it_can_wire_by_default_but_still_override_the_value()
+    {
+        config(['form-components.default_wire' => true]);
+
+        $component = Livewire::test(FormComponentDefaultWiredWithOverride::class);
+
+        $component->assertSeeHtml('wire:model="input"')
+            ->assertSeeHtml('wire:model="textarea"')
+            ->assertDontSeeHtml('wire:model="select"')
+            ->assertSeeHtml('wire:model.debounce.1000ms="multi_select"')
+            ->assertSeeHtml('wire:model="checkbox"')
+            ->assertSeeHtml('wire:model="radio"');
+    }
+
+    /** @test */
+    public function it_can_wire_by_default_but_still_override_with_a_directive()
+    {
+        config(['form-components.default_wire' => true]);
+
+        $component = Livewire::test(FormComponentDefaultWiredWithDirectiveOverride::class);
+
+        $component->assertSeeHtml('wire:model="input"')
+            ->assertDontSeeHtml('wire:model="textarea"')
+            ->assertSeeHtml('wire:model="select"')
+            ->assertSeeHtml('wire:model.defer="multi_select"')
+            ->assertSeeHtml('wire:model.debounce.500ms="checkbox"')
+            ->assertSeeHtml('wire:model="radio"');
     }
 }
