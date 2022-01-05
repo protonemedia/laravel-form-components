@@ -10,6 +10,9 @@ return [
 
     'use_eloquent_date_casting' => false,
 
+    /** bool | string */
+    'default_wire' => false,
+
     'components' => [
         'form' => [
             'view'  => 'form-components::{framework}.form',

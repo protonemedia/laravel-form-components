@@ -17,6 +17,11 @@ class FormDataBinder
     private $wire = false;
 
     /**
+     * Whether the default wire has been verified once.
+     */
+    private $verifiedDefaultWire = false;
+
+    /**
      * Bind a target to the current instance
      *
      * @param mixed $target
@@ -54,6 +59,16 @@ class FormDataBinder
      */
     public function isWired(): bool
     {
+        if (!$this->verifiedDefaultWire) {
+            $this->verifiedDefaultWire = true;
+
+            $defaultWire = config('form-components.default_wire');
+
+            if ($defaultWire !== false) {
+                $this->wire = $defaultWire;
+            }
+        }
+
         return $this->wire !== false;
     }
 
