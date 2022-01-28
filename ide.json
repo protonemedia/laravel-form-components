@@ -1,0 +1,20 @@
+{
+    "$schema": "https://laravel-ide.com/schema/laravel-ide-v2.json",
+    "blade": {
+        "components": {
+            "fromConfig": [
+                {
+                    "file": "/config/proton.php",
+                    "fallbackFile": "config/config.php",
+                    "key": "components",
+                    "prefixKey": "prefix",
+                    "namespaceKey": "namespace",
+                    "classFetch": {
+                        "type": "arrayKey",
+                        "key": "class"
+                    }
+                }
+            ]
+        }
+    }
+}
