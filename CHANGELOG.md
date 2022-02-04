@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-form-components` will be documented in this file
 
+## 3.6.0 - 2022-02-04
+
+- Support for Laravel 9
+
 ## 3.5.1 - 2022-01-05
 
 - Fix for falsy default select values
