@@ -18,6 +18,8 @@ abstract class TestCase extends BaseTestCase
 
         $this->app['config']->set('app.key', 'base64:yWa/ByhLC/GUvfToOuaPD7zDwB64qkc/QkaQOrT5IpE=');
 
+        $this->app['config']->set('session.serialization', 'php');
+
         $this->app['config']->set('form-components.framework', env('FORM_COMPONENTS_FRAMEWORK', 'tailwind'));
 
         View::addLocation(__DIR__ . '/Feature/views');
