@@ -11,6 +11,10 @@ A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://
 
 Hey! We've built a Docker-based deployment tool to launch apps and sites fully containerized. You can find all features and the roadmap on our [website](https://uselauncher.com), and we are on [Twitter](https://twitter.com/uselauncher) as well!
 
+## Looking for a Inertia.js / Vue / Laravel Jetstream solution?
+
+Check out [Form Components Pro](https://github.com/protonemedia/form-components-pro)! It's a set of Vue 3 components to rapidly build forms with Tailwind CSS 3. It supports validation, model binding, integrates with Autosize/Choices.js/Flatpickr, includes default vendor styling and is fully customizable! Even better in conjunction with Laravel Jetstream + Inertia.js.
+
 ## Features
 
 ### 📺 Want to see this package in action? Join the live stream on November 19 at 14:00 CET: [https://youtu.be/7eNZS4U7xyM](https://youtu.be/7eNZS4U7xyM)
