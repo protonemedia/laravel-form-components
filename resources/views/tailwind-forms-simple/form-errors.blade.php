@@ -3,3 +3,6 @@
         {{ $message }}
     </p>
 @enderror
+@foreach(collect($errors->get($name.'.*')) as $message)
+    <x-form-errors name="{{ $name }}.*" :bag="$bag" />
+@endforeach
