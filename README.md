@@ -7,7 +7,7 @@
 
 A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://tailwindcss-custom-forms.netlify.app), [Tailwind CSS v2](https://tailwindcss-forms.vercel.app), [Bootstrap 4](https://getbootstrap.com/docs/4.0/components/forms/) and [Bootstrap 5](https://getbootstrap.com/docs/5.1/forms/overview/). Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
 
-## Support this package!
+## Sponsor this package!
 
 ❤️ We proudly support the community by developing Laravel packages and giving them away for free. If this package saves you time or if you're relying on it professionally, please consider [sponsoring the maintenance and development](https://github.com/sponsors/pascalbaljet). Keeping track of issues and pull requests takes time, but we're happy to help!
 
@@ -16,10 +16,6 @@ A set of Blade components to rapidly build forms with [Tailwind CSS v1](https://
 **Did you hear about Laravel Splade? 🤩**
 
 It's the *magic* of Inertia.js with the *simplicity* of Blade. [Splade](https://github.com/protonemedia/laravel-splade) provides a super easy way to build Single Page Applications using Blade templates. Besides that magic SPA-feeling, it comes with more than ten components to sparkle your app and make it interactive, all without ever leaving Blade.
-
-## Looking for a Inertia.js / Vue / Laravel Jetstream solution?
-
-Check out [Form Components Pro](https://github.com/protonemedia/form-components-pro)! It's a set of Vue 3 components to rapidly build forms with Tailwind CSS 3. It supports validation, model binding, integrates with Autosize/Choices.js/Flatpickr, includes default vendor styling and is fully customizable! Even better in conjunction with Laravel Jetstream + Inertia.js.
 
 ## Features
 
@@ -40,12 +36,10 @@ Check out [Form Components Pro](https://github.com/protonemedia/form-components-
 * Components classes and Blade views fully customizable.
 * Support for prefixing the components.
 
-Looking for Inertia/Vue.js support? Check out [Form Components Pro](https://github.com/protonemedia/form-components-pro)
-
 ## Requirements
 
-* PHP 7.4 or higher
-* Laravel 8.0 or 9.0
+* PHP 8.0 or higher
+* Laravel 9.0
 
 ## Installation
 
