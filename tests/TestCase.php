@@ -12,6 +12,11 @@ abstract class TestCase extends BaseTestCase
 {
     protected $baseUrl = 'http://localhost';
 
+    public static function isLaravel10(): bool
+    {
+        return version_compare(app()->version(), '10.0', '>=');
+    }
+
     public function setUp(): void
     {
         parent::setUp();
