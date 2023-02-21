@@ -39,7 +39,7 @@
         "nesbot/carbon": "^2.66",
         "orchestra/testbench-browser-kit": "^7.0 || ^8.0",
         "phpunit/phpunit": "^9.5",
-        "spatie/laravel-translatable": "^5.0",
+        "spatie/laravel-translatable": "^6.0",
         "symfony/dom-crawler": "^6.0"
     },
     "autoload": {
