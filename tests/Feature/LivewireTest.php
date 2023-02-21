@@ -98,8 +98,8 @@ class LivewireTest extends TestCase
             ->assertSeeHtml('The textarea field is required')
             ->assertSeeHtml('The select field is required')
             ->assertSeeHtml('The multi select field is required')
-            ->assertSeeHtml('The checkbox must be accepted')
-            ->assertSeeHtml('The radio must be accepted');
+            ->assertSeeHtml(TestCase::isLaravel10() ? 'The checkbox field must be accepted' : 'The checkbox must be accepted')
+            ->assertSeeHtml(TestCase::isLaravel10() ? 'The radio field must be accepted' : 'The radio must be accepted');
     }
 
     /** @test */
@@ -125,8 +125,8 @@ class LivewireTest extends TestCase
             ->assertSeeHtml('The textarea field is required')
             ->assertSeeHtml('The select field is required')
             ->assertSeeHtml('The multi select field is required')
-            ->assertSeeHtml('The checkbox must be accepted')
-            ->assertSeeHtml('The radio must be accepted');
+            ->assertSeeHtml(TestCase::isLaravel10() ? 'The checkbox field must be accepted' : 'The checkbox must be accepted')
+            ->assertSeeHtml(TestCase::isLaravel10() ? 'The radio field must be accepted' : 'The radio must be accepted');
     }
 
     /** @test */

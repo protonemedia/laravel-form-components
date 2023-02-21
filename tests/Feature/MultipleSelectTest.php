@@ -22,6 +22,6 @@ class MultipleSelectTest extends TestCase
             ->press('Submit')
             ->seeElement('option[value="be"]:selected')
             ->seeElement('option[value="nl"]:selected')
-            ->seeText('The select must be a string.');
+            ->seeText(static::isLaravel10() ? 'The select field must be a string.' : 'The select must be a string.');
     }
 }
