@@ -1,3 +1,5 @@
+@props(['disablePlaceholder' => false])
+
 @if($floating) <div class="form-floating"> @endif
 
     @if(!$floating)
@@ -27,7 +29,7 @@
     >
 
         @if($placeholder)
-            <option value="" disabled @if($nothingSelected()) selected="selected" @endif>
+            <option value="" @if($disablePlaceholder) disabled @endif @if($nothingSelected()) selected="selected" @endif>
                 {{ $placeholder }}
             </option>
         @endif

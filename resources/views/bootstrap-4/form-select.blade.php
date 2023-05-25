@@ -1,3 +1,5 @@
+@props(['disablePlaceholder' => false])
+
 <div class="form-group">
     <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
@@ -23,7 +25,7 @@
         {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}>
 
         @if($placeholder)
-            <option value="" disabled @if($nothingSelected()) selected="selected" @endif>
+            <option value="" @if($disablePlaceholder) disabled @endif @if($nothingSelected()) selected="selected" @endif>
                 {{ $placeholder }}
             </option>
         @endif
