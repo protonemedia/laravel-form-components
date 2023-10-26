@@ -18,6 +18,7 @@ class FormSelect extends Component
     public bool $multiple;
     public bool $floating;
     public string $placeholder;
+    public string $hidden;
 
     /**
      * Create a new component instance.
@@ -34,6 +35,7 @@ class FormSelect extends Component
         bool $showErrors = true,
         bool $manyRelation = false,
         bool $floating = false,
+        bool $hidden = false,
         string $placeholder = ''
     ) {
         $this->name         = $name;
@@ -41,6 +43,7 @@ class FormSelect extends Component
         $this->options      = $options;
         $this->manyRelation = $manyRelation;
         $this->placeholder  = $placeholder;
+        $this->hidden  = $hidden;
 
         if ($this->isNotWired()) {
             $inputName = static::convertBracketsToDots(Str::before($name, '[]'));

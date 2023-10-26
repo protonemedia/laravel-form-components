@@ -27,7 +27,7 @@
     >
 
         @if($placeholder)
-            <option value="" disabled @if($nothingSelected()) selected="selected" @endif>
+            <option value="" disabled @if($nothingSelected()) selected="selected" @endif @if($hidden) hidden="hidden" @endif>
                 {{ $placeholder }}
             </option>
         @endif
