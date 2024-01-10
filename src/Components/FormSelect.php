@@ -54,6 +54,14 @@ class FormSelect extends Component
             if ($this->selectedKey instanceof Arrayable) {
                 $this->selectedKey = $this->selectedKey->toArray();
             }
+
+            if ($this->selectedKey instanceof \BackedEnum) {
+                $this->selectedKey = $this->selectedKey->value;
+            }
+
+            if ($this->selectedKey instanceof \UnitEnum) {
+                $this->selectedKey = $this->selectedKey->name;
+            }
         }
 
         $this->multiple   = $multiple;
