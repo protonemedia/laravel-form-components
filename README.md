@@ -1,3 +1,5 @@
+> :warning: This package is deprecated. It doesn't support Livewire 3 and Tailwind 3 and won't be maintained anymore.
+
 # Laravel Form Components
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-form-components.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-form-components)
