@@ -1,7 +1,7 @@
 @if($floating) <div class="form-floating"> @endif
 
     @if(!$floating)
-        <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
+        <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" class="form-label" />
     @endif
 
     <textarea

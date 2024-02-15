@@ -1,5 +1,5 @@
 <div {!! $attributes->merge(['class' => ($hasError($name) ? 'is-invalid' : '')]) !!}>
-    <x-form-label :label="$label" />
+    <x-form-label :label="$label" class="form-label" />
 
     <div class="@if($inline) d-flex flex-row flex-wrap inline-space @endif">
         {!! $slot !!}
